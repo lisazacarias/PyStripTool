@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>814</width>
-    <height>741</height>
+    <width>855</width>
+    <height>917</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -626,22 +626,10 @@
        <item>
         <widget class="PyDMLabel" name="PyDMLabel">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>370</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>370</width>
-           <height>32</height>
-          </size>
          </property>
          <property name="font">
           <font>
