@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1029</width>
+    <width>1036</width>
     <height>764</height>
    </rect>
   </property>
@@ -15,42 +15,116 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="1">
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="SignalLogBox">
      <property name="title">
       <string>History</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="PyDMLogDisplay" name="PyDMLogDisplay">
+       <widget class="PyDMLogDisplay" name="SignalLogDisplay">
         <property name="toolTip">
-         <string/>
+         <string>Signal log. Double click to open a signal.</string>
+        </property>
+        <property name="logLevel" stdset="0">
+         <enum>PyDMLogDisplay::INFO</enum>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QGroupBox" name="groupBox_2">
+   <item row="1" column="1">
+    <widget class="QGroupBox" name="SignalManipulationBox">
      <property name="title">
-      <string>Time Manipulation</string>
+      <string>Signal</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>TextLabel</string>
+       <widget class="QScrollArea" name="SignalScrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
         </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>354</width>
+           <height>272</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="SignalLayout_2">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QCheckBox" name="SignalOnOff">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="SignalName"/>
+              </item>
+              <item>
+               <widget class="QSlider" name="SignalColor">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="SignalColorOpacity">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="AddButton">
+            <property name="toolTip">
+             <string>Add a new signal</string>
+            </property>
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="LoadButton">
+            <property name="toolTip">
+             <string>Load a signal</string>
+            </property>
+            <property name="text">
+             <string>Load</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="SaveButton">
+            <property name="toolTip">
+             <string>Save a signal</string>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox"/>
       </item>
      </layout>
     </widget>
    </item>
    <item row="0" column="0">
-    <widget class="PyDMLabel" name="PyDMLabel">
+    <widget class="PyDMLabel" name="SignalViewerTitle">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
        <horstretch>0</horstretch>
@@ -73,94 +147,132 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="PyDMTimePlot" name="PyDMTimePlot">
+    <widget class="PyDMTimePlot" name="SignalTimePlot">
      <property name="toolTip">
       <string/>
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QGroupBox" name="groupBox">
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="TimeManipulationBox">
      <property name="title">
-      <string>Signal</string>
+      <string>Time Manipulation</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="widgetResizable">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="4">
+       <widget class="QLabel" name="DaysLabel">
+        <property name="text">
+         <string>Days</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="MonthsLabel">
+        <property name="text">
+         <string>Months</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="9">
+       <widget class="QLabel" name="MinutesLabel">
+        <property name="text">
+         <string>Minutes</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QSpinBox" name="MonthsSelector">
+        <property name="toolTip">
+         <string>Months</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="YearsSelector">
+        <property name="toolTip">
+         <string>Years</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="QLabel" name="HoursLabel">
+        <property name="text">
+         <string>Hours</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="10">
+       <widget class="QSpinBox" name="MinutesSelector">
+        <property name="toolTip">
+         <string>Minutes</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QSpinBox" name="DaysSelector">
+        <property name="toolTip">
+         <string>Days</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="YearsLabel">
+        <property name="text">
+         <string>Years</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8">
+       <widget class="QSpinBox" name="HoursSelector">
+        <property name="toolTip">
+         <string>Hours</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="PausePlayButton">
+        <property name="toolTip">
+         <string>Pause/Play Live View</string>
+        </property>
+        <property name="text">
+         <string>Pause
+Play</string>
+        </property>
+        <property name="checkable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>467</width>
-           <height>272</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <layout class="QVBoxLayout" name="SignalLayout_2">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QCheckBox" name="checkBox">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit"/>
-              </item>
-              <item>
-               <widget class="QSlider" name="horizontalSlider">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_2">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton">
-            <property name="toolTip">
-             <string>add a new signal</string>
-            </property>
-            <property name="text">
-             <string>Add</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="text">
-             <string>Load</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="text">
-             <string>Save</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="PyDMByteIndicator" name="PausePlayIndicator">
+        <property name="toolTip">
+         <string>Green is for Live View; gray is for static.</string>
+        </property>
+        <property name="showLabels" stdset="0">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
      </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QDateTimeEdit" name="dateTimeEdit">
+     <property name="toolTip">
+      <string>Current time</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="currentSection">
+      <enum>QDateTimeEdit::MonthSection</enum>
+     </property>
+     <property name="displayFormat">
+      <string>M/d/yyyy h:mm AP</string>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
   </layout>
@@ -175,6 +287,11 @@
    <class>PyDMTimePlot</class>
    <extends>QGraphicsView</extends>
    <header>pydm.widgets.timeplot</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
   </customwidget>
   <customwidget>
    <class>PyDMLogDisplay</class>
