@@ -49,75 +49,56 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>354</width>
-           <height>272</height>
+           <width>470</width>
+           <height>112</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <layout class="QVBoxLayout" name="SignalLayout_2">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QCheckBox" name="SignalOnOff">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="SignalName"/>
-              </item>
-              <item>
-               <widget class="QSlider" name="SignalColor">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="SignalColorOpacity">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="AddButton">
-            <property name="toolTip">
-             <string>Add a new signal</string>
-            </property>
-            <property name="text">
-             <string>Add</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="LoadButton">
-            <property name="toolTip">
-             <string>Load a signal</string>
-            </property>
-            <property name="text">
-             <string>Load</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="SaveButton">
-            <property name="toolTip">
-             <string>Save a signal</string>
-            </property>
-            <property name="text">
-             <string>Save</string>
-            </property>
-           </widget>
+           <layout class="QVBoxLayout" name="SignalLayout_2"/>
           </item>
          </layout>
         </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="AddButton">
+        <property name="toolTip">
+         <string>Add a new signal</string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="LoadButton">
+        <property name="toolTip">
+         <string>Load signal</string>
+        </property>
+        <property name="text">
+         <string>Load</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SaveButton">
+        <property name="toolTip">
+         <string>Save a signal</string>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="DeleteButton">
+        <property name="toolTip">
+         <string>Delete a checked signals</string>
+        </property>
+        <property name="text">
+         <string>Delete</string>
+        </property>
        </widget>
       </item>
      </layout>
@@ -159,23 +140,16 @@
       <string>Time Manipulation</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="4">
-       <widget class="QLabel" name="DaysLabel">
-        <property name="text">
-         <string>Days</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLabel" name="MonthsLabel">
-        <property name="text">
-         <string>Months</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="9">
        <widget class="QLabel" name="MinutesLabel">
         <property name="text">
+         <string>Minutes</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="10">
+       <widget class="QSpinBox" name="MinutesSelector">
+        <property name="toolTip">
          <string>Minutes</string>
         </property>
        </widget>
@@ -187,13 +161,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QSpinBox" name="YearsSelector">
-        <property name="toolTip">
-         <string>Years</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="7">
        <widget class="QLabel" name="HoursLabel">
         <property name="text">
@@ -201,10 +168,17 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="10">
-       <widget class="QSpinBox" name="MinutesSelector">
+      <item row="0" column="2">
+       <widget class="QLabel" name="MonthsLabel">
+        <property name="text">
+         <string>Months</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="YearsSelector">
         <property name="toolTip">
-         <string>Minutes</string>
+         <string>Years</string>
         </property>
        </widget>
       </item>
@@ -215,22 +189,37 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="YearsLabel">
+      <item row="0" column="4">
+       <widget class="QLabel" name="DaysLabel">
         <property name="text">
-         <string>Years</string>
+         <string>Days</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="8">
-       <widget class="QSpinBox" name="HoursSelector">
+      <item row="1" column="1">
+       <widget class="PyDMByteIndicator" name="PausePlayIndicator">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="toolTip">
-         <string>Hours</string>
+         <string>Green is for Live View; gray is for static.</string>
+        </property>
+        <property name="showLabels" stdset="0">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="PausePlayButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="toolTip">
          <string>Pause/Play Live View</string>
         </property>
@@ -243,13 +232,17 @@ Play</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="PyDMByteIndicator" name="PausePlayIndicator">
+      <item row="0" column="8">
+       <widget class="QSpinBox" name="HoursSelector">
         <property name="toolTip">
-         <string>Green is for Live View; gray is for static.</string>
+         <string>Hours</string>
         </property>
-        <property name="showLabels" stdset="0">
-         <bool>false</bool>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="YearsLabel">
+        <property name="text">
+         <string>Years</string>
         </property>
        </widget>
       </item>
