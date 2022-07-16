@@ -14,38 +14,8 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="PyDMLabel" name="SignalViewerTitle">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Signal Viewer</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="PyDMTimePlot" name="SignalTimePlot">
-     <property name="toolTip">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QDateTimeEdit" name="dateTimeEdit">
+   <item row="0" column="2">
+    <widget class="QDateTimeEdit" name="CurrentTimeDate">
      <property name="toolTip">
       <string>Current time</string>
      </property>
@@ -63,7 +33,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="2" column="2">
     <widget class="QGroupBox" name="SignalManipulationBox">
      <property name="title">
       <string>Signal</string>
@@ -119,7 +89,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>761</width>
+           <width>448</width>
            <height>161</height>
           </rect>
          </property>
@@ -134,7 +104,7 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="2" column="1">
     <widget class="QGroupBox" name="TimeManipulationBox">
      <property name="title">
       <string>Time Manipulation</string>
@@ -182,19 +152,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="6">
-       <widget class="QLabel" name="HoursLabel">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Hours</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="2">
        <widget class="QSpinBox" name="MonthsSelector">
         <property name="toolTip">
@@ -233,13 +190,6 @@ Play</string>
        <widget class="QSpinBox" name="DaysSelector">
         <property name="toolTip">
          <string>Days</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="6">
-       <widget class="QSpinBox" name="HoursSelector">
-        <property name="toolTip">
-         <string>Hours</string>
         </property>
        </widget>
       </item>
@@ -287,7 +237,101 @@ Time</string>
         </property>
        </widget>
       </item>
+      <item row="0" column="5">
+       <widget class="QLabel" name="HoursLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Hours</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QSpinBox" name="HoursSelector">
+        <property name="toolTip">
+         <string>Hours</string>
+        </property>
+       </widget>
+      </item>
      </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="PyDMTimePlot" name="SignalTimePlot">
+     <property name="toolTip">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Y-Axis</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QScrollArea" name="YAxisScrollArea">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>274</width>
+           <height>118</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2"/>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="AddYAxis">
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="PyDMLabel" name="SignalViewerTitle">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Signal Viewer</string>
+     </property>
     </widget>
    </item>
   </layout>
