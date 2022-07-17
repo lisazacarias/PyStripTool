@@ -40,7 +40,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1">
-       <widget class="QPushButton" name="AddButton">
+       <widget class="QPushButton" name="AddSCOSU">
         <property name="toolTip">
          <string>Add a new signal</string>
         </property>
@@ -50,7 +50,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPushButton" name="LoadButton">
+       <widget class="QPushButton" name="LoadConfiguration">
         <property name="toolTip">
          <string>Load signal</string>
         </property>
@@ -60,7 +60,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QPushButton" name="SaveButton">
+       <widget class="QPushButton" name="SaveConfiguration">
         <property name="toolTip">
          <string>Save a signal</string>
         </property>
@@ -70,7 +70,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QPushButton" name="DeleteButton">
+       <widget class="QPushButton" name="DeleteSCOSU">
         <property name="toolTip">
          <string>Delete a checked signals</string>
         </property>
@@ -90,7 +90,7 @@
            <x>0</x>
            <y>0</y>
            <width>448</width>
-           <height>161</height>
+           <height>236</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -265,6 +265,12 @@ Time</string>
      <property name="toolTip">
       <string/>
      </property>
+     <property name="yAxes">
+      <stringlist/>
+     </property>
+     <property name="curves">
+      <stringlist/>
+     </property>
     </widget>
    </item>
    <item row="2" column="0">
@@ -290,7 +296,7 @@ Time</string>
            <x>0</x>
            <y>0</y>
            <width>274</width>
-           <height>118</height>
+           <height>244</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
