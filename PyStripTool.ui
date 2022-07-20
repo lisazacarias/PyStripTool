@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1263</width>
+    <width>1206</width>
     <height>768</height>
    </rect>
   </property>
@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="2">
-    <widget class="QDateTimeEdit" name="CurrentTimeDate">
+    <widget class="QDateTimeEdit" name="current_time_date">
      <property name="toolTip">
       <string>Current time</string>
      </property>
@@ -34,13 +34,13 @@
     </widget>
    </item>
    <item row="2" column="2">
-    <widget class="QGroupBox" name="SignalManipulationBox">
+    <widget class="QGroupBox" name="signal_manipulation_group_box">
      <property name="title">
       <string>Signal</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1">
-       <widget class="QPushButton" name="AddSCOSU">
+       <widget class="QPushButton" name="add_signal_setups">
         <property name="toolTip">
          <string>Add a new signal</string>
         </property>
@@ -50,7 +50,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPushButton" name="LoadConfiguration">
+       <widget class="QPushButton" name="load_configuration">
         <property name="toolTip">
          <string>Load signal</string>
         </property>
@@ -60,7 +60,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QPushButton" name="SaveConfiguration">
+       <widget class="QPushButton" name="save_configuration">
         <property name="toolTip">
          <string>Save a signal</string>
         </property>
@@ -70,7 +70,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QPushButton" name="DeleteSCOSU">
+       <widget class="QPushButton" name="delete_signal_setups">
         <property name="toolTip">
          <string>Delete a checked signals</string>
         </property>
@@ -80,7 +80,7 @@
        </widget>
       </item>
       <item row="0" column="0" rowspan="4">
-       <widget class="QScrollArea" name="SignalScrollArea">
+       <widget class="QScrollArea" name="signal_scroll_area">
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
@@ -89,7 +89,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>448</width>
+           <width>391</width>
            <height>236</height>
           </rect>
          </property>
@@ -105,16 +105,16 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QGroupBox" name="TimeManipulationBox">
+    <widget class="QGroupBox" name="time_manipulation_group_box">
      <property name="title">
       <string>Time Manipulation</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="2" column="2" colspan="3">
-       <widget class="QTimeEdit" name="StartTimeSelect"/>
+       <widget class="QTimeEdit" name="start_time_select"/>
       </item>
       <item row="0" column="9">
-       <widget class="QLabel" name="MinutesLabel">
+       <widget class="QLabel" name="minutes_label">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -127,7 +127,7 @@
        </widget>
       </item>
       <item row="0" column="4">
-       <widget class="QLabel" name="DaysLabel">
+       <widget class="QLabel" name="days_label">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -140,7 +140,7 @@
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QLabel" name="MonthsLabel">
+       <widget class="QLabel" name="months_label">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -153,21 +153,21 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QSpinBox" name="MonthsSelector">
+       <widget class="QSpinBox" name="months_selector">
         <property name="toolTip">
          <string>Months</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QSpinBox" name="YearsSelector">
+       <widget class="QSpinBox" name="years_selector">
         <property name="toolTip">
          <string>Years</string>
         </property>
        </widget>
       </item>
       <item row="2" column="5" colspan="2">
-       <widget class="QPushButton" name="PausePlayButton">
+       <widget class="QPushButton" name="pause_play_button">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -187,14 +187,14 @@ Play</string>
        </widget>
       </item>
       <item row="1" column="4">
-       <widget class="QSpinBox" name="DaysSelector">
+       <widget class="QSpinBox" name="days_selector">
         <property name="toolTip">
          <string>Days</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="StartTimeLabel">
+       <widget class="QLabel" name="start_time_label">
         <property name="text">
          <string>Start
 Time</string>
@@ -202,7 +202,7 @@ Time</string>
        </widget>
       </item>
       <item row="2" column="9">
-       <widget class="PyDMByteIndicator" name="PausePlayIndicator">
+       <widget class="PyDMByteIndicator" name="pause_play_indicator">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
           <horstretch>0</horstretch>
@@ -218,14 +218,14 @@ Time</string>
        </widget>
       </item>
       <item row="1" column="9">
-       <widget class="QSpinBox" name="MinutesSelector">
+       <widget class="QSpinBox" name="minutes_selector">
         <property name="toolTip">
          <string>Minutes</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="QLabel" name="YearsLabel">
+       <widget class="QLabel" name="years_label">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -238,7 +238,7 @@ Time</string>
        </widget>
       </item>
       <item row="0" column="5">
-       <widget class="QLabel" name="HoursLabel">
+       <widget class="QLabel" name="hours_label">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -251,7 +251,7 @@ Time</string>
        </widget>
       </item>
       <item row="1" column="5">
-       <widget class="QSpinBox" name="HoursSelector">
+       <widget class="QSpinBox" name="hours_selector">
         <property name="toolTip">
          <string>Hours</string>
         </property>
@@ -261,12 +261,14 @@ Time</string>
     </widget>
    </item>
    <item row="1" column="0" colspan="3">
-    <widget class="PyDMTimePlot" name="SignalTimePlot">
+    <widget class="PyDMTimePlot" name="signal_time_plot">
      <property name="toolTip">
       <string/>
      </property>
      <property name="yAxes">
-      <stringlist/>
+      <stringlist>
+       <string>{&quot;name&quot;: &quot;Axis 1&quot;, &quot;orientation&quot;: &quot;left&quot;, &quot;label&quot;: null, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: false}</string>
+      </stringlist>
      </property>
      <property name="curves">
       <stringlist/>
@@ -274,13 +276,13 @@ Time</string>
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="y_axis_group_box">
      <property name="title">
       <string>Y-Axis</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QScrollArea" name="YAxisScrollArea">
+       <widget class="QScrollArea" name="y_axis_scroll_area">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -308,7 +310,7 @@ Time</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="AddYAxis">
+       <widget class="QPushButton" name="add_y_axis">
         <property name="text">
          <string>Add</string>
         </property>
@@ -318,7 +320,7 @@ Time</string>
     </widget>
    </item>
    <item row="0" column="0">
-    <widget class="PyDMLabel" name="SignalViewerTitle">
+    <widget class="PyDMLabel" name="signal_viewer_title">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
        <horstretch>0</horstretch>

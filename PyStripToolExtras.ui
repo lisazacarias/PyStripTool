@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>877</width>
-    <height>555</height>
+    <width>1087</width>
+    <height>394</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,16 +15,16 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="YAxisSetUpBox">
+    <widget class="QGroupBox" name="y_axis_setup_box">
      <property name="title">
       <string>Y-Axis Set Up</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLineEdit" name="YAxisLineEdit"/>
+       <widget class="QLineEdit" name="y_axis_line_edit"/>
       </item>
       <item>
-       <widget class="QPushButton" name="DeleteYAxisUnitButton">
+       <widget class="QPushButton" name="delete_y_axis_unit_button">
         <property name="text">
          <string>-</string>
         </property>
@@ -34,30 +34,33 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="SCOSUsBox">
+    <widget class="QGroupBox" name="signal_setups_box">
      <property name="title">
-      <string>SCOSU's</string>
+      <string>Signal Set Ups</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QCheckBox" name="SignalCheckBox">
+       <widget class="QCheckBox" name="signal_check_box">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="SignalLineEdit"/>
+       <widget class="QLineEdit" name="signal_line_edit"/>
       </item>
       <item>
-       <widget class="QSlider" name="ColorSlider">
+       <widget class="QComboBox" name="signal_y_axis_assignment_combo_box"/>
+      </item>
+      <item>
+       <widget class="QSlider" name="color_slider">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="OpacityCheckBox">
+       <widget class="QCheckBox" name="opacity_check_box">
         <property name="text">
          <string/>
         </property>
@@ -67,34 +70,34 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="LoadConfigurationsSetUp">
+    <widget class="QGroupBox" name="load_configurations_setup">
      <property name="title">
       <string>Load Configurations Set Up</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="1" column="2">
-       <widget class="QPushButton" name="DeleteConfigurationButton">
+       <widget class="QPushButton" name="delete_configuration_button">
         <property name="text">
          <string>Delete</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPushButton" name="CreateConfigurationButton">
+       <widget class="QPushButton" name="create_configuration_button">
         <property name="text">
          <string>New</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QPushButton" name="LoadConfigurationButton">
+       <widget class="QPushButton" name="load_configuration_button">
         <property name="text">
          <string>Load</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0" colspan="3">
-       <widget class="QScrollArea" name="LoadConfigurationScrollArea">
+       <widget class="QScrollArea" name="load_configuration_scroll_area">
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
@@ -103,8 +106,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>821</width>
-           <height>266</height>
+           <width>1031</width>
+           <height>105</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
