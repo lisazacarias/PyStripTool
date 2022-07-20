@@ -17,6 +17,17 @@ class PyStripTool(Display):
 
     def __init__(self, parent=None, args=None):
         super(PyStripTool, self).__init__(parent=parent, args=args)
+
+        self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
+
+        self.current_cm: Optional[PlotCryomodule] = None
+        self.ui.cryo_combobox.addItems(["None"] + ALL_CRYOMODULES)
+        self.ui.cryo_combobox.currentIndexChanged.connect(self.update_cryomodule)
+        self.time_plot_updater: TimePlotUpdater = None
+        self.setup_plots()
+
+        self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
+
         self.time_combo_boxes = [self.ui.years_selector, self.ui.months_selector,
                                  self.ui.days_selector, self.ui.hours_selector,
                                  self.ui.minutes_selector]
@@ -46,11 +57,20 @@ class PyStripTool(Display):
         self.time_plot_updater.updateTimespans(self.ui.timespan_spinbox.value())
 
     def signal_setups(self):
+        # Y-Axis Assignment combo box
+        self.ui.signal_y_axis_assignment_combo_box = {"1": y_axis(1), "2": y_axis(2)}
+
+        self.ui.signal_y_axis_assignment_combo_box = None
+
+        # Line edit
         self.ui.signal_line_edit.returnPressed.connect(self.data)
+        # Signal checkbox
         self.ui.signal_checkbox.checked.connect(self.ui.signal_line_edit)
         self.ui.signal_checkbox.checked.connect(self.update_plot)
+        # Color slider
         self.ui.color_slider.SliderMove.connect(self.ui.signal_line_edit)
         self.ui.color_slider.SliderMove.connect(self.update_plot)
+        # Opacity checkbox
         self.ui.opacity_checkbox.checked.connect(self.ui.signal_line_edit)
         self.ui.opacity_checkbox.checked.connect(self.update_plot)
 

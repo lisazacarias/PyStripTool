@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1206</width>
-    <height>768</height>
+    <width>1156</width>
+    <height>656</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,78 +33,48 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="2">
-    <widget class="QGroupBox" name="signal_manipulation_group_box">
-     <property name="title">
-      <string>Signal</string>
+   <item row="0" column="0">
+    <widget class="PyDMLabel" name="signal_viewer_title">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="1">
-       <widget class="QPushButton" name="add_signal_setups">
-        <property name="toolTip">
-         <string>Add a new signal</string>
-        </property>
-        <property name="text">
-         <string>Add</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="load_configuration">
-        <property name="toolTip">
-         <string>Load signal</string>
-        </property>
-        <property name="text">
-         <string>Load</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="save_configuration">
-        <property name="toolTip">
-         <string>Save a signal</string>
-        </property>
-        <property name="text">
-         <string>Save</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="delete_signal_setups">
-        <property name="toolTip">
-         <string>Delete a checked signals</string>
-        </property>
-        <property name="text">
-         <string>Delete</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" rowspan="4">
-       <widget class="QScrollArea" name="signal_scroll_area">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>391</width>
-           <height>236</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <layout class="QVBoxLayout" name="SignalLayout_2"/>
-          </item>
-         </layout>
-        </widget>
-       </widget>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Signal Viewer</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QGroupBox" name="time_plots_layout">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Time Plots</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_4"/>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="4" column="0" colspan="2">
     <widget class="QGroupBox" name="time_manipulation_group_box">
      <property name="title">
       <string>Time Manipulation</string>
@@ -260,86 +230,122 @@ Time</string>
      </layout>
     </widget>
    </item>
-   <item row="1" column="0" colspan="3">
-    <widget class="PyDMTimePlot" name="signal_time_plot">
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="yAxes">
-      <stringlist>
-       <string>{&quot;name&quot;: &quot;Axis 1&quot;, &quot;orientation&quot;: &quot;left&quot;, &quot;label&quot;: null, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: false}</string>
-      </stringlist>
-     </property>
-     <property name="curves">
-      <stringlist/>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
+   <item row="2" column="0" colspan="2">
     <widget class="QGroupBox" name="y_axis_group_box">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="title">
-      <string>Y-Axis</string>
+      <string>Time Plot Management</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QScrollArea" name="y_axis_scroll_area">
+       <widget class="QLabel" name="label">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="widgetResizable">
-         <bool>true</bool>
+        <property name="text">
+         <string>Number of time plots:</string>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>274</width>
-           <height>244</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_2"/>
-          </item>
-         </layout>
-        </widget>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="add_y_axis">
-        <property name="text">
-         <string>Add</string>
+       <widget class="QSpinBox" name="spinBox">
+        <property name="maximum">
+         <number>12</number>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="0" column="0">
-    <widget class="PyDMLabel" name="signal_viewer_title">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+   <item row="2" column="2" rowspan="3">
+    <widget class="QGroupBox" name="signal_manipulation_group_box">
+     <property name="title">
+      <string>Signal</string>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Signal Viewer</string>
-     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1">
+       <widget class="QPushButton" name="add_signal_setups">
+        <property name="toolTip">
+         <string>Add a new signal</string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="save_configuration">
+        <property name="toolTip">
+         <string>Save a signal</string>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="load_configuration">
+        <property name="toolTip">
+         <string>Load signal</string>
+        </property>
+        <property name="text">
+         <string>Load</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" rowspan="4">
+       <widget class="QScrollArea" name="signal_scroll_area">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>553</width>
+           <height>191</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="SignalLayout_2"/>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="delete_signal_setups">
+        <property name="toolTip">
+         <string>Delete a checked signals</string>
+        </property>
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QComboBox" name="signal_setups_add_for_timeplot"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QComboBox" name="configurations_load_for_timeplot"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="QComboBox" name="configurations_save_for_timeplot"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QComboBox" name="signal_setups_delete_for_timeplot"/>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
@@ -349,11 +355,6 @@ Time</string>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMTimePlot</class>
-   <extends>QGraphicsView</extends>
-   <header>pydm.widgets.timeplot</header>
   </customwidget>
   <customwidget>
    <class>PyDMByteIndicator</class>
