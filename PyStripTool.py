@@ -9,7 +9,7 @@ from pydm import Display
 from qtpy.QtWidgets import (QAction, QApplication, QButtonGroup,
                             QCheckBox, QComboBox, QDateTimeEdit, QFrame,
                             QGridLayout, QGroupBox, QHBoxLayout,
-                            QHeaderView, QLabel, QLineEdit, QPushButton,
+                            QHeaderView, QLabel, QLineEdit, QMessageBox, QPushButton,
                             QScrollArea, QSlider, QSpinBox, QTimeEdit,
                             QVBoxLayout, QWidget)
 from pydm.widgets import PyDMEmbeddedDisplay
@@ -30,7 +30,7 @@ class PyStripTool(Display):
 
     def ui_filename(self):
         # Point to our UI file
-        return 'PyStripToolALt.ui'
+        return 'PyStripTool.ui'
 
     def __init__(self, parent=None, args=None):
         super().__init__(parent=parent, args=args)
@@ -81,14 +81,14 @@ class PyStripTool(Display):
         # except KeyError:
         #     self.time_plot_updater.clear_plots()
 
-    def update_y_axis(self):
-        try:
-            self.current_line = TIMEPLOTS_YAXIS_DICT[self.ui.signal_y_axis_assignment_combo_box.currentText()]
-
-            timeplot_update = {plot_utils.timeplot_number: self.current_line.y_axis}
-            self.time_plot_updater.updatePlots(timeplot_update)
-        except KeyError:
-            self.time_plot_updater.clear_plots()
+    # def update_y_axis(self):
+    #     try:
+    #         self.current_line = TIMEPLOTS_YAXIS_DICT[self.ui.signal_y_axis_assignment_combo_box.currentText()]
+    #
+    #         timeplot_update = {plot_utils.timeplot_number: self.current_line.y_axis}
+    #         self.time_plot_updater.updatePlots(timeplot_update)
+    #     except KeyError:
+    #         self.time_plot_updater.clear_plots()
 
     # def setup_plots(self):
     #     time_plot_updater = {
@@ -139,6 +139,25 @@ class PyStripTool(Display):
             self.ui.pause_play_button.clicked.connect(self.ui.pause_play_indicator)
 
     def signal_setups(self):
+        self.ui.SignalLayout_2.addLayout(signal_setups)
+
+        signal_setups = QtWidgets.QHBoxLayout()
+        signal_check_box = QtWidgets.QCheckBox()
+        signal_setups.addWidget(signal_check_box)
+        signal_line_edit = QtWidgets.QLineEdit()
+        signal_setups.addWidget(signal_line_edit)
+        signal_y_axis_assignment_combo_box = QtWidgets.QComboBox()
+        signal_setups.addWidget(signal_y_axis_assignment_combo_box)
+        time_plot_assignment = QtWidgets.QComboBox()
+        time_plot_assignment.addItems([str(i) for i in range(1, 13)])
+        signal_setups.addWidget(time_plot_assignment)
+        color_slider = QtWidgets.QSlider()
+        color_slider.setOrientation(QtCore.Qt.Horizontal)
+        signal_setups.addWidget(color_slider)
+        opacity_check_box = QtWidgets.QCheckBox()
+        signal_setups.addWidget(opacity_check_box)
+
+
         # Line edit
         self.ui.signal_line_edit.returnPressed.connect(self.data)
         # Signal checkbox
