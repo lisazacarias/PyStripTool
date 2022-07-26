@@ -17,11 +17,11 @@ from pydm.widgets import PyDMTimePlot
 from pydm.widgets import PyDMByteIndicator
 from pydm.utilities import connection
 from scipy.ndimage import maximum_position
-from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotParams,
-                                                       TimePlotUpdater)
-from lcls_tools.superconducting.scLinac import ALL_CRYOMODULES
-import plot_utils
-from plot_linac import Decarad, PLOT_CRYO_DICT, PlotCryomodule
+# from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotParams,
+                                                       # TimePlotUpdater)
+# from lcls_tools.superconducting.scLinac import ALL_CRYOMODULES
+# import plot_utils
+# from plot_linac import Decarad, PLOT_CRYO_DICT, PlotCryomodule
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -37,9 +37,9 @@ class PyStripTool(Display):
 
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
 
-        self.current_line: Optional[PlotCryomodule] = None
-        self.ui.cryo_combobox.addItems(["None"] + ALL_CRYOMODULES)
-        self.ui.cryo_combobox.currentIndexChanged.connect(self.update_cryomodule)
+        # self.current_line: Optional[PlotCryomodule] = None
+        # self.ui.cryo_combobox.addItems(["None"] + ALL_CRYOMODULES)
+        # self.ui.cryo_combobox.currentIndexChanged.connect(self.update_cryomodule)
         self.time_plot_updater: TimePlotUpdater = None
         self.setup_plots()
 
@@ -60,26 +60,26 @@ class PyStripTool(Display):
         # Update the time span.
         self.time_plot_updater.updateTimespans(self.ui.timespan_spinbox.value())
 
-    def update_plot_lines(self):
-        try:
-            self.current_line = PLOT_LINE_DICT[self.ui.signal_line_edit.currentText()]
+    # def update_plot_lines(self):
+        # try:
+            # self.current_line = PLOT_LINE_DICT[self.ui.signal_line_edit.currentText()]
 
-            timeplot_update_map = {plot_utils.ONE: self.current_line.one,
-                                   plot_utils.TWO: self.current_line.two,
-                                   plot_utils.THREE: self.current_line.three,
-                                   plot_utils.FOUR: self.current_line.four,
-                                   plot_utils.FIVE: self.current_line.five,
-                                   plot_utils.SIX: self.current_line.six,
-                                   plot_utils.SEVEN: self.current_line.seven,
-                                   plot_utils.EIGHT: self.current_line.eight,
-                                   plot_utils.NINE: self.current_line.nine,
-                                   plot_utils.TEN: self.current_line.ten,
-                                   plot_utils.ELEVEN: self.current_line.eleven,
-                                   plot_utils.TWELVE: self.current_line.twelve}
+            # timeplot_update_map = {plot_utils.ONE: self.current_line.one,
+            #                        plot_utils.TWO: self.current_line.two,
+            #                        plot_utils.THREE: self.current_line.three,
+            #                        plot_utils.FOUR: self.current_line.four,
+            #                        plot_utils.FIVE: self.current_line.five,
+            #                        plot_utils.SIX: self.current_line.six,
+            #                        plot_utils.SEVEN: self.current_line.seven,
+            #                        plot_utils.EIGHT: self.current_line.eight,
+            #                        plot_utils.NINE: self.current_line.nine,
+            #                        plot_utils.TEN: self.current_line.ten,
+            #                        plot_utils.ELEVEN: self.current_line.eleven,
+            #                        plot_utils.TWELVE: self.current_line.twelve}
 
-            self.time_plot_updater.updatePlots(timeplot_update_map)
-        except KeyError:
-            self.time_plot_updater.clear_plots()
+            # self.time_plot_updater.updatePlots(timeplot_update_map)
+        # except KeyError:
+        #     self.time_plot_updater.clear_plots()
 
     def update_y_axis(self):
         try:
@@ -90,34 +90,34 @@ class PyStripTool(Display):
         except KeyError:
             self.time_plot_updater.clear_plots()
 
-    def setup_plots(self):
-        time_plot_updater = {
-            plot_utils.ONE: TimePlotParams(plot=self.ui.plot_steppertemps,
-                                           formLayout=self.ui.stepper_form),
-            plot_utils.TWO: TimePlotParams(plot=self.ui.plot_homus_temp,
-                                           formLayout=self.ui.up_hom_form),
-            plot_utils.THREE: TimePlotParams(plot=self.ui.plot_homds_temp,
-                                             formLayout=self.ui.down_hom_form),
-            plot_utils.FOUR: TimePlotParams(plot=self.ui.plot_couplertop_temp,
-                                            formLayout=self.ui.coup_top_form),
-            plot_utils.FIVE: TimePlotParams(plot=self.ui.plot_couplerbot_temp,
-                                            formLayout=self.ui.coup_bot_hom),
-            plot_utils.SIX: TimePlotParams(plot=self.ui.plot_cmvacuum,
-                                           formLayout=self.ui.vacuum_form),
-            plot_utils.SEVEN: TimePlotParams(plot=self.ui.plot_cryosignals,
-                                             formLayout=self.ui.cryo_form),
-            plot_utils.EIGHT: TimePlotParams(plot=self.ui.plot_decarad,
-                                             formLayout=self.ui.decarad_form),
-            plot_utils.NINE: TimePlotParams(plot=self.ui.plot_amps,
-                                            formLayout=self.ui.amp_form),
-            plot_utils.TEN: TimePlotParams(plot=self.ui.plot_cmvacuum,
-                                           formLayout=self.ui.vacuum_form),
-            plot_utils.ELEVEN: TimePlotParams(plot=self.ui.plot_cryosignals,
-                                              formLayout=self.ui.cryo_form),
-            plot_utils.TWELVE: TimePlotParams(plot=self.ui.plot_decarad,
-                                              formLayout=self.ui.decarad_form),
-        }
-        self.time_plot_updater = TimePlotUpdater(time_plot_updater)
+    # def setup_plots(self):
+    #     time_plot_updater = {
+    #         plot_utils.ONE: TimePlotParams(plot=self.ui.plot_steppertemps,
+    #                                        formLayout=self.ui.stepper_form),
+    #         plot_utils.TWO: TimePlotParams(plot=self.ui.plot_homus_temp,
+    #                                        formLayout=self.ui.up_hom_form),
+    #         plot_utils.THREE: TimePlotParams(plot=self.ui.plot_homds_temp,
+    #                                          formLayout=self.ui.down_hom_form),
+    #         plot_utils.FOUR: TimePlotParams(plot=self.ui.plot_couplertop_temp,
+    #                                         formLayout=self.ui.coup_top_form),
+    #         plot_utils.FIVE: TimePlotParams(plot=self.ui.plot_couplerbot_temp,
+    #                                         formLayout=self.ui.coup_bot_hom),
+    #         plot_utils.SIX: TimePlotParams(plot=self.ui.plot_cmvacuum,
+    #                                        formLayout=self.ui.vacuum_form),
+    #         plot_utils.SEVEN: TimePlotParams(plot=self.ui.plot_cryosignals,
+    #                                          formLayout=self.ui.cryo_form),
+    #         plot_utils.EIGHT: TimePlotParams(plot=self.ui.plot_decarad,
+    #                                          formLayout=self.ui.decarad_form),
+    #         plot_utils.NINE: TimePlotParams(plot=self.ui.plot_amps,
+    #                                         formLayout=self.ui.amp_form),
+    #         plot_utils.TEN: TimePlotParams(plot=self.ui.plot_cmvacuum,
+    #                                        formLayout=self.ui.vacuum_form),
+    #         plot_utils.ELEVEN: TimePlotParams(plot=self.ui.plot_cryosignals,
+    #                                           formLayout=self.ui.cryo_form),
+    #         plot_utils.TWELVE: TimePlotParams(plot=self.ui.plot_decarad,
+    #                                           formLayout=self.ui.decarad_form),
+    #     }
+    #     self.time_plot_updater = TimePlotUpdater(time_plot_updater)
 
     def ui_filepath(self):
         # Return the full path to the UI file
