@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1170</width>
+    <height>707</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="PyDMLabel" name="signal_viewer_title">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="text">
+       <string>Signal Viewer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QDateTimeEdit" name="current_time_date">
+      <property name="toolTip">
+       <string>Current time</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="currentSection">
+       <enum>QDateTimeEdit::MonthSection</enum>
+      </property>
+      <property name="displayFormat">
+       <string>M/d/yyyy h:mm AP</string>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QGroupBox" name="time_plots_layout">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title">
+       <string>Time Plots</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <layout class="QGridLayout" name="gridLayout_5"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QGroupBox" name="signal_manipulation_group_box">
+      <property name="title">
+       <string>Signal</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0" rowspan="2">
+        <widget class="QScrollArea" name="signal_scroll_area_2">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1114</width>
+            <height>105</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QVBoxLayout" name="SignalLayout_3"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1170</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_signal_edit">
+    <property name="title">
+     <string>Signal Edit</string>
+    </property>
+    <addaction name="action_add"/>
+    <addaction name="action_load"/>
+    <addaction name="action_save"/>
+    <addaction name="action_delete"/>
+   </widget>
+   <widget class="QMenu" name="menu_time_plots">
+    <property name="title">
+     <string>Time Plots</string>
+    </property>
+    <widget class="QMenu" name="menu_number_of_plots">
+     <property name="title">
+      <string>Number of plots</string>
+     </property>
+     <addaction name="action1"/>
+     <addaction name="action2"/>
+     <addaction name="action3"/>
+     <addaction name="action4"/>
+     <addaction name="action5"/>
+     <addaction name="action6"/>
+     <addaction name="action7"/>
+     <addaction name="action8"/>
+     <addaction name="action9"/>
+     <addaction name="action10"/>
+     <addaction name="action11"/>
+     <addaction name="action12"/>
+    </widget>
+    <widget class="QMenu" name="menu_y_axis">
+     <property name="title">
+      <string>Y-Axis</string>
+     </property>
+     <addaction name="action_add_y_axis"/>
+    </widget>
+    <addaction name="menu_number_of_plots"/>
+    <addaction name="menu_y_axis"/>
+   </widget>
+   <widget class="QMenu" name="menu_time_edit">
+    <property name="title">
+     <string>Time Edit</string>
+    </property>
+    <addaction name="action_open_time_manipulation_box"/>
+   </widget>
+   <addaction name="menu_signal_edit"/>
+   <addaction name="menu_time_edit"/>
+   <addaction name="menu_time_plots"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_add">
+   <property name="text">
+    <string>Add</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="action_load">
+   <property name="text">
+    <string>Load</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="action_save">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save current setup</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_delete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="action1">
+   <property name="text">
+    <string>1</string>
+   </property>
+  </action>
+  <action name="action2">
+   <property name="text">
+    <string>2</string>
+   </property>
+  </action>
+  <action name="action3">
+   <property name="text">
+    <string>3</string>
+   </property>
+  </action>
+  <action name="action4">
+   <property name="text">
+    <string>4</string>
+   </property>
+  </action>
+  <action name="action5">
+   <property name="text">
+    <string>5</string>
+   </property>
+  </action>
+  <action name="action6">
+   <property name="text">
+    <string>6</string>
+   </property>
+  </action>
+  <action name="action7">
+   <property name="text">
+    <string>7</string>
+   </property>
+  </action>
+  <action name="action8">
+   <property name="text">
+    <string>8</string>
+   </property>
+  </action>
+  <action name="action9">
+   <property name="text">
+    <string>9</string>
+   </property>
+  </action>
+  <action name="action10">
+   <property name="text">
+    <string>10</string>
+   </property>
+  </action>
+  <action name="action11">
+   <property name="text">
+    <string>11</string>
+   </property>
+  </action>
+  <action name="action12">
+   <property name="text">
+    <string>12</string>
+   </property>
+  </action>
+  <action name="action_add_y_axis">
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </action>
+  <action name="action_open_time_manipulation_box">
+   <property name="text">
+    <string>Open Time Manipulation Box</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
