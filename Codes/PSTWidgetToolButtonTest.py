@@ -24,6 +24,7 @@ class Ui_Form(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.SignalLayout_2 = QtWidgets.QVBoxLayout()
         self.current_time_date = QtWidgets.QDateTimeEdit(Form)
+
         # self.signal_edit_tool_button = QtWidgets.QToolButton(Form)
         # self.signal_edit_add = QtWidgets.QMenu()
         # self.signal_edit_load = QtWidgets.QMenu()
@@ -34,6 +35,7 @@ class Ui_Form(object):
         # self.time_plots_tool_button = QtWidgets.QToolButton(Form)
         # self.time_plots_number_plots = QtWidgets.QMenu()
         # self.time_plots_y_axis = QtWidgets.QMenu()
+        
         self.menu_button = QtWidgets.QToolButton()
         self.menu = QtWidgets.QMenu()
 
