@@ -43,8 +43,8 @@ class Ui_Form(Display):
         self.plots_menu_button = QtWidgets.QToolButton()
         self.menu = QtWidgets.QMenu()
 
-        self.signal_edit = Display(ui_filename="PyStripToolLoadPopUp.ui")
-        self.time_edit = Display(ui_filename="PyStripToolTimeManip.ui")
+        self.signal_edit = Display(ui_filename="../PyStripToolLoadPopUp.ui")
+        self.time_edit = Display(ui_filename="../PyStripToolTimeManip.ui")
         # self.time_plots = Display(ui_filename="")
 
     def setupUi(self, Form):
