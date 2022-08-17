@@ -11,10 +11,6 @@ from qtpy import QtCore
 from qtpy.QtWidgets import (QCheckBox, QComboBox, QHBoxLayout,
                             QLineEdit, QSlider)
 
-# from lcls_tools.superconducting.scLinac import ALL_CRYOMODULES
-# import plot_utils
-# from plot_linac import Decarad, PLOT_CRYO_DICT, PlotCryomodule
-
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
@@ -29,10 +25,6 @@ class PyStripTool(Display):
 
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
 
-        # self.current_line: Optional[PlotCryomodule] = None
-        # self.ui.cryo_combobox.addItems(["None"] + ALL_CRYOMODULES)
-        # self.ui.cryo_combobox.currentIndexChanged.connect(self.update_cryomodule)
-        # self.time_plot_updater: TimePlotUpdater = None
         self.setup_plots()
 
         self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
@@ -59,17 +51,17 @@ class PyStripTool(Display):
     def get_path(self, file_name):
         return path.join(self.pathHere, file_name)
 
-    # def time_manipulation(self):
-    #     self.ui.action_open_time_manipulation_box.clicked.connect(partial(showDisplay, self.time_popup))
-    #     # Connect year/month/day/hour/minute combo boxes to the time span of the plots.
-    #     for combo_box in self.time_combo_boxes:
-    #         combo_box.clicked.connect(self.update_plot_timespan)
-    #         # self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
-    #         # Connect the start time spin box to the time span of the plots.
-    #         self.start_time_select.clicked.connect(self.update_plot_timespan)
-    #         # Connect the live view button and indicator to the plots.
-    #         self.ui.pause_play_button.clicked.connect(self.time_plot_updater)
-    #         self.ui.pause_play_button.clicked.connect(self.ui.pause_play_indicator)
+    def time_manipulation(self):
+        self.ui.action_open_time_manipulation_box.clicked.connect(partial(showDisplay, self.time_popup))
+        # Connect year/month/day/hour/minute combo boxes to the time span of the plots.
+        for combo_box in self.time_combo_boxes:
+            combo_box.clicked.connect(self.update_plot_timespan)
+            # self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
+            # Connect the start time spin box to the time span of the plots.
+            self.start_time_select.clicked.connect(self.update_plot_timespan)
+            # Connect the live view button and indicator to the plots.
+            self.ui.pause_play_button.clicked.connect(self.time_plot_updater)
+            self.ui.pause_play_button.clicked.connect(self.ui.pause_play_indicator)
 
     def signal_setups(self):
         signal_setups = QHBoxLayout()
