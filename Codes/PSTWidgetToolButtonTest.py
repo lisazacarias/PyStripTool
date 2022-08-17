@@ -1,3 +1,9 @@
+import sys
+import warnings
+from functools import partial
+from os import path
+from typing import Optional
+from pydm import Display
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -32,6 +38,10 @@ class Ui_Form(object):
         self.time_menu_button = QtWidgets.QToolButton()
         self.plots_menu_button = QtWidgets.QToolButton()
         self.menu = QtWidgets.QMenu()
+
+        self.signal_edit = Display(ui_filename="PyStripToolLoadPopUp.ui")
+        self.time_edit = Display(ui_filename="PyStripToolTimeManip.ui")
+        # self.time_plots = Display(ui_filename="")
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -135,6 +145,11 @@ class Ui_Form(object):
         self.signal_menu_button.setText(_translate("Form", "Signal Edit"))
         self.time_menu_button.setText(_translate("Form", "Time Edit"))
         self.plots_menu_button.setText(_translate("Form", "Time PLots"))
+
+    def menu_bar(self):
+        self.signal_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
+        self.time_menu_button.clicked.connect(partial(showDisplay, self.time_edit))
+        # self.plots_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
 
 
 # # class MenuBar(object):
