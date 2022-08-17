@@ -4,8 +4,8 @@ from functools import partial
 from os import path
 from typing import Optional
 
-from lcls_tools.common.pydm_tools.displayUtils import showDisplay
-from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotUpdater)
+# from lcls_tools.common.pydm_tools.displayUtils import showDisplay
+# from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotUpdater)
 from pydm import Display
 from qtpy import QtCore
 from qtpy.QtWidgets import (QCheckBox, QComboBox, QHBoxLayout,
@@ -32,7 +32,7 @@ class PyStripTool(Display):
         # self.current_line: Optional[PlotCryomodule] = None
         # self.ui.cryo_combobox.addItems(["None"] + ALL_CRYOMODULES)
         # self.ui.cryo_combobox.currentIndexChanged.connect(self.update_cryomodule)
-        self.time_plot_updater: TimePlotUpdater = None
+        # self.time_plot_updater: TimePlotUpdater = None
         self.setup_plots()
 
         self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
@@ -52,65 +52,6 @@ class PyStripTool(Display):
         # Update the time span.
         self.time_plot_updater.updateTimespans(self.ui.timespan_spinbox.value())
 
-    # def update_plot_lines(self):
-    # try:
-    # self.current_line = PLOT_LINE_DICT[self.ui.signal_line_edit.currentText()]
-
-    # timeplot_update_map = {plot_utils.ONE: self.current_line.one,
-    #                        plot_utils.TWO: self.current_line.two,
-    #                        plot_utils.THREE: self.current_line.three,
-    #                        plot_utils.FOUR: self.current_line.four,
-    #                        plot_utils.FIVE: self.current_line.five,
-    #                        plot_utils.SIX: self.current_line.six,
-    #                        plot_utils.SEVEN: self.current_line.seven,
-    #                        plot_utils.EIGHT: self.current_line.eight,
-    #                        plot_utils.NINE: self.current_line.nine,
-    #                        plot_utils.TEN: self.current_line.ten,
-    #                        plot_utils.ELEVEN: self.current_line.eleven,
-    #                        plot_utils.TWELVE: self.current_line.twelve}
-
-    # self.time_plot_updater.updatePlots(timeplot_update_map)
-    # except KeyError:
-    #     self.time_plot_updater.clear_plots()
-
-    # def update_y_axis(self):
-    #     try:
-    #         self.current_line = TIMEPLOTS_YAXIS_DICT[self.ui.signal_y_axis_assignment_combo_box.currentText()]
-    #
-    #         timeplot_update = {plot_utils.timeplot_number: self.current_line.y_axis}
-    #         self.time_plot_updater.updatePlots(timeplot_update)
-    #     except KeyError:
-    #         self.time_plot_updater.clear_plots()
-
-    # def setup_plots(self):
-    #     time_plot_updater = {
-    #         plot_utils.ONE: TimePlotParams(plot=self.ui.plot_steppertemps,
-    #                                        formLayout=self.ui.stepper_form),
-    #         plot_utils.TWO: TimePlotParams(plot=self.ui.plot_homus_temp,
-    #                                        formLayout=self.ui.up_hom_form),
-    #         plot_utils.THREE: TimePlotParams(plot=self.ui.plot_homds_temp,
-    #                                          formLayout=self.ui.down_hom_form),
-    #         plot_utils.FOUR: TimePlotParams(plot=self.ui.plot_couplertop_temp,
-    #                                         formLayout=self.ui.coup_top_form),
-    #         plot_utils.FIVE: TimePlotParams(plot=self.ui.plot_couplerbot_temp,
-    #                                         formLayout=self.ui.coup_bot_hom),
-    #         plot_utils.SIX: TimePlotParams(plot=self.ui.plot_cmvacuum,
-    #                                        formLayout=self.ui.vacuum_form),
-    #         plot_utils.SEVEN: TimePlotParams(plot=self.ui.plot_cryosignals,
-    #                                          formLayout=self.ui.cryo_form),
-    #         plot_utils.EIGHT: TimePlotParams(plot=self.ui.plot_decarad,
-    #                                          formLayout=self.ui.decarad_form),
-    #         plot_utils.NINE: TimePlotParams(plot=self.ui.plot_amps,
-    #                                         formLayout=self.ui.amp_form),
-    #         plot_utils.TEN: TimePlotParams(plot=self.ui.plot_cmvacuum,
-    #                                        formLayout=self.ui.vacuum_form),
-    #         plot_utils.ELEVEN: TimePlotParams(plot=self.ui.plot_cryosignals,
-    #                                           formLayout=self.ui.cryo_form),
-    #         plot_utils.TWELVE: TimePlotParams(plot=self.ui.plot_decarad,
-    #                                           formLayout=self.ui.decarad_form),
-    #     }
-    #     self.time_plot_updater = TimePlotUpdater(time_plot_updater)
-
     def ui_filepath(self):
         # Return the full path to the UI file
         return path.join(path.dirname(path.realpath(__file__)), self.ui_filename())
@@ -118,17 +59,17 @@ class PyStripTool(Display):
     def get_path(self, file_name):
         return path.join(self.pathHere, file_name)
 
-    def time_manipulation(self):
-        self.ui.action_open_time_manipulation_box.clicked.connect(partial(showDisplay, self.time_popup))
-        # Connect year/month/day/hour/minute combo boxes to the time span of the plots.
-        for combo_box in self.time_combo_boxes:
-            combo_box.clicked.connect(self.update_plot_timespan)
-            # self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
-            # Connect the start time spin box to the time span of the plots.
-            self.start_time_select.clicked.connect(self.update_plot_timespan)
-            # Connect the live view button and indicator to the plots.
-            self.ui.pause_play_button.clicked.connect(self.time_plot_updater)
-            self.ui.pause_play_button.clicked.connect(self.ui.pause_play_indicator)
+    # def time_manipulation(self):
+    #     self.ui.action_open_time_manipulation_box.clicked.connect(partial(showDisplay, self.time_popup))
+    #     # Connect year/month/day/hour/minute combo boxes to the time span of the plots.
+    #     for combo_box in self.time_combo_boxes:
+    #         combo_box.clicked.connect(self.update_plot_timespan)
+    #         # self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
+    #         # Connect the start time spin box to the time span of the plots.
+    #         self.start_time_select.clicked.connect(self.update_plot_timespan)
+    #         # Connect the live view button and indicator to the plots.
+    #         self.ui.pause_play_button.clicked.connect(self.time_plot_updater)
+    #         self.ui.pause_play_button.clicked.connect(self.ui.pause_play_indicator)
 
     def signal_setups(self):
         signal_setups = QHBoxLayout()
@@ -169,24 +110,24 @@ class PyStripTool(Display):
         self.ui.actiop_delete.clicked.connect(self.signal_setups)
 
 
-class MenuBar(object):
-    def __init__(self):
-        self.menu_button = QtWidgets.QToolButton()
-        self.menu = QtWidgets.QMenu()
-
-    def menu_callback(self, k, v):
-        return lambda: self.menu_button.setText('{0}_{1}.format(k,v)')
-
-    def set_menu(self):
-        menu_dic = {'Signal Edit': ["Add", "Load", "Save", "Delete"],
-                    'Time Edit': ["Open Time Box"],
-                    'Time Plots': ["Time Plot Number", "Y Axis"]}
-        for k, vals in menu_dic.items():
-            sub_menu = self.menu.addMenu(k)
-            for v in vals:
-                action = sub_menu.addAction(str(v))
-                action.triggered.connect(self.menu_callback(k, v))
-        self.menu_button.setMenu(self.menu)
+# class MenuBar(object):
+#     def __init__(self):
+#         self.menu_button = QtWidgets.QToolButton()
+#         self.menu = QtWidgets.QMenu()
+#
+#     def menu_callback(self, k, v):
+#         return lambda: self.menu_button.setText('{0}_{1}.format(k,v)')
+#
+#     def set_menu(self):
+#         menu_dic = {'Signal Edit': ["Add", "Load", "Save", "Delete"],
+#                     'Time Edit': ["Open Time Box"],
+#                     'Time Plots': ["Time Plot Number", "Y Axis"]}
+#         for k, vals in menu_dic.items():
+#             sub_menu = self.menu.addMenu(k)
+#             for v in vals:
+#                 action = sub_menu.addAction(str(v))
+#                 action.triggered.connect(self.menu_callback(k, v))
+#         self.menu_button.setMenu(self.menu)
 
 
 """

@@ -89,15 +89,6 @@ class Ui_Form(Display):
         self.current_time_date.setObjectName("current_time_date")
         self.gridLayout.addWidget(self.current_time_date, 1, 3, 1, 1)
 
-        # self.signal_edit_tool_button.setObjectName("signal_edit_tool_button")
-        # self.gridLayout.addWidget(self.signal_edit_tool_button, 0, 0, 1, 1)
-        #
-        # self.time_edit_tool_button.setObjectName("time_edit_tool_button")
-        # self.gridLayout.addWidget(self.time_edit_tool_button, 0, 1, 1, 1)
-        #
-        # self.time_plots_tool_button.setObjectName("time_plots_tool_button")
-        # self.gridLayout.addWidget(self.time_plots_tool_button, 0, 2, 1, 1)
-
         self.signal_menu_button.setObjectName("signal_edit")
         self.gridLayout.addWidget(self.signal_menu_button, 0, 0, 1, 1)
 
@@ -147,8 +138,8 @@ class Ui_Form(Display):
         self.plots_menu_button.setText(_translate("Form", "Time PLots"))
 
     def menu_bar(self):
-        self.signal_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
-        self.time_menu_button.clicked.connect(partial(showDisplay, self.time_edit))
+        self.ui.signal_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
+        self.ui.time_menu_button.clicked.connect(partial(showDisplay, self.time_edit))
         # self.plots_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
 
 
