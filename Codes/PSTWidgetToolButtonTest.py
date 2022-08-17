@@ -124,18 +124,18 @@ class Ui_Form(Display):
     #             action.triggered.connect(self.menu_callback(k, v))
     #     self.signal_menu_button.setMenu(self.menu)
 
-    def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "Signal Viewer"))
-        self.time_plots_layout.setTitle(_translate("Form", "Time Plots"))
-        self.signal_manipulation_group_box.setTitle(_translate("Form", "Signal"))
-        self.current_time_date.setToolTip(_translate("Form", "Current time"))
-        self.current_time_date.setDisplayFormat(_translate("Form", "M/d/yyyy h:mm AP"))
-
-        self.signal_menu_button.setText(_translate("Form", "Signal Edit"))
-        self.time_menu_button.setText(_translate("Form", "Time Edit"))
-        self.plots_menu_button.setText(_translate("Form", "Time PLots"))
+    # def retranslateUi(self, Form):
+    #     _translate = QtCore.QCoreApplication.translate
+    #     Form.setWindowTitle(_translate("Form", "Form"))
+    #     self.label.setText(_translate("Form", "Signal Viewer"))
+    #     self.time_plots_layout.setTitle(_translate("Form", "Time Plots"))
+    #     self.signal_manipulation_group_box.setTitle(_translate("Form", "Signal"))
+    #     self.current_time_date.setToolTip(_translate("Form", "Current time"))
+    #     self.current_time_date.setDisplayFormat(_translate("Form", "M/d/yyyy h:mm AP"))
+    #
+    #     self.signal_menu_button.setText(_translate("Form", "Signal Edit"))
+    #     self.time_menu_button.setText(_translate("Form", "Time Edit"))
+    #     self.plots_menu_button.setText(_translate("Form", "Time PLots"))
 
     def menu_bar(self):
         self.ui.signal_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
