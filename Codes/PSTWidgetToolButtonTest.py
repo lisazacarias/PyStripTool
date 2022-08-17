@@ -12,7 +12,8 @@ class Ui_Form(Display):
         # Point to our UI file
         return 'PyStripTool.ui'
 
-    def __init__(self):
+    def __init__(self, parent=None, args=None):
+        super().__init__(parent=parent, args=args)
         self.gridLayout = QtWidgets.QGridLayout()
         self.label = QtWidgets.QLabel()
         self.time_plots_layout = QtWidgets.QGroupBox()
