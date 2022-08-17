@@ -7,32 +7,32 @@ from pydm import Display
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
+class Ui_Form(Display):
 
     def __init__(self):
-        self.gridLayout = QtWidgets.QGridLayout(Form)
-        self.label = QtWidgets.QLabel(Form)
-        self.time_plots_layout = QtWidgets.QGroupBox(Form)
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.label = QtWidgets.QLabel()
+        self.time_plots_layout = QtWidgets.QGroupBox()
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.time_plots_layout)
         self.gridLayout_4 = QtWidgets.QGridLayout()
-        self.signal_manipulation_group_box = QtWidgets.QGroupBox(Form)
+        self.signal_manipulation_group_box = QtWidgets.QGroupBox()
         self.gridLayout_2 = QtWidgets.QGridLayout(self.signal_manipulation_group_box)
         self.signal_scroll_area = QtWidgets.QScrollArea(self.signal_manipulation_group_box)
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.SignalLayout_2 = QtWidgets.QVBoxLayout()
-        self.current_time_date = QtWidgets.QDateTimeEdit(Form)
+        self.current_time_date = QtWidgets.QDateTimeEdit()
 
         # self.signal_edit_tool_button = QtWidgets.QToolButton(Form)
-        # self.signal_edit_add = QtWidgets.QMenu()
-        # self.signal_edit_load = QtWidgets.QMenu()
-        # self.signal_edit_save = QtWidgets.QMenu()
-        # self.signal_edit_delete = QtWidgets.QMenu()
-        # self.time_edit_tool_button = QtWidgets.QToolButton(Form)
+        # self.signal_edit_add =         QtWidgets.QMenu()
+        # self.signal_edit_load =        QtWidgets.QMenu()
+        # self.signal_edit_save =        QtWidgets.QMenu()
+        # self.signal_edit_delete =      QtWidgets.QMenu()
+        # self.time_edit_tool_button =   QtWidgets.QToolButton(Form)
         # self.time_edit_open_time_box = QtWidgets.QMenu()
-        # self.time_plots_tool_button = QtWidgets.QToolButton(Form)
+        # self.time_plots_tool_button =  QtWidgets.QToolButton(Form)
         # self.time_plots_number_plots = QtWidgets.QMenu()
-        # self.time_plots_y_axis = QtWidgets.QMenu()
+        # self.time_plots_y_axis =       QtWidgets.QMenu()
 
         self.signal_menu_button = QtWidgets.QToolButton()
         self.time_menu_button = QtWidgets.QToolButton()
@@ -172,11 +172,11 @@ class Ui_Form(object):
 # #         self.menu_button.setMenu(self.menu)
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())
