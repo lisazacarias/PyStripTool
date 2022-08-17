@@ -10,7 +10,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(Display):
     def ui_filename(self):
         # Point to our UI file
-        return 'PyStripTool.ui'
+        return '../PyStripTool.ui'
 
     def __init__(self, parent=None, args=None):
         super().__init__(parent=parent, args=args)
