@@ -1,43 +1,51 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'PyStripTool.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
-
+import sys
+import warnings
+from functools import partial
+from os import path
+from typing import Optional
+from pydm import Display
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
+class Ui_Form(Display):
+    def ui_filename(self):
+        # Point to our UI file
+        return 'PyStripTool.ui'
 
-    def __init__(self):
-        self.gridLayout = QtWidgets.QGridLayout(Form)
-        self.label = QtWidgets.QLabel(Form)
-        self.time_plots_layout = QtWidgets.QGroupBox(Form)
+    def __init__(self, parent=None, args=None):
+        super().__init__(parent=parent, args=args)
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.label = QtWidgets.QLabel()
+        self.time_plots_layout = QtWidgets.QGroupBox()
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.time_plots_layout)
         self.gridLayout_4 = QtWidgets.QGridLayout()
-        self.signal_manipulation_group_box = QtWidgets.QGroupBox(Form)
+        self.signal_manipulation_group_box = QtWidgets.QGroupBox()
         self.gridLayout_2 = QtWidgets.QGridLayout(self.signal_manipulation_group_box)
         self.signal_scroll_area = QtWidgets.QScrollArea(self.signal_manipulation_group_box)
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.SignalLayout_2 = QtWidgets.QVBoxLayout()
-        self.current_time_date = QtWidgets.QDateTimeEdit(Form)
+        self.current_time_date = QtWidgets.QDateTimeEdit()
 
         # self.signal_edit_tool_button = QtWidgets.QToolButton(Form)
-        # self.signal_edit_add = QtWidgets.QMenu()
-        # self.signal_edit_load = QtWidgets.QMenu()
-        # self.signal_edit_save = QtWidgets.QMenu()
-        # self.signal_edit_delete = QtWidgets.QMenu()
-        # self.time_edit_tool_button = QtWidgets.QToolButton(Form)
+        # self.signal_edit_add =         QtWidgets.QMenu()
+        # self.signal_edit_load =        QtWidgets.QMenu()
+        # self.signal_edit_save =        QtWidgets.QMenu()
+        # self.signal_edit_delete =      QtWidgets.QMenu()
+        # self.time_edit_tool_button =   QtWidgets.QToolButton(Form)
         # self.time_edit_open_time_box = QtWidgets.QMenu()
-        # self.time_plots_tool_button = QtWidgets.QToolButton(Form)
+        # self.time_plots_tool_button =  QtWidgets.QToolButton(Form)
         # self.time_plots_number_plots = QtWidgets.QMenu()
-        # self.time_plots_y_axis = QtWidgets.QMenu()
-        
-        self.menu_button = QtWidgets.QToolButton()
+        # self.time_plots_y_axis =       QtWidgets.QMenu()
+
+        self.signal_menu_button = QtWidgets.QToolButton()
+        self.time_menu_button = QtWidgets.QToolButton()
+        self.plots_menu_button = QtWidgets.QToolButton()
         self.menu = QtWidgets.QMenu()
+
+        self.signal_edit = Display(ui_filename="PyStripToolLoadPopUp.ui")
+        self.time_edit = Display(ui_filename="PyStripToolTimeManip.ui")
+        # self.time_plots = Display(ui_filename="")
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -85,17 +93,14 @@ class Ui_Form(object):
         self.current_time_date.setObjectName("current_time_date")
         self.gridLayout.addWidget(self.current_time_date, 1, 3, 1, 1)
 
-        # self.signal_edit_tool_button.setObjectName("signal_edit_tool_button")
-        # self.gridLayout.addWidget(self.signal_edit_tool_button, 0, 0, 1, 1)
-        #
-        # self.time_edit_tool_button.setObjectName("time_edit_tool_button")
-        # self.gridLayout.addWidget(self.time_edit_tool_button, 0, 1, 1, 1)
-        #
-        # self.time_plots_tool_button.setObjectName("time_plots_tool_button")
-        # self.gridLayout.addWidget(self.time_plots_tool_button, 0, 2, 1, 1)
+        self.signal_menu_button.setObjectName("signal_edit")
+        self.gridLayout.addWidget(self.signal_menu_button, 0, 0, 1, 1)
 
-        self.menu_button.setObjectName("menu_bar")
-        self.gridLayout.addWidget(self.menu_button, 0, 0, 1, 1)
+        self.time_menu_button.setObjectName("time_edit")
+        self.gridLayout.addWidget(self.time_menu_button, 0, 1, 1, 1)
+
+        self.plots_menu_button.setObjectName("time_plots")
+        self.gridLayout.addWidget(self.plots_menu_button, 0, 2, 1, 1)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -109,19 +114,19 @@ class Ui_Form(object):
     # def time_plots_submenu(self, k, v):
     #     return lambda: self.time_plots_tool_button.setText('{0}_{1}'.format(k, v))
 
-    def menu_callback(self, k, v):
-        return lambda: self.menu_button.setText('{0}_{1}.format(k,v)')
-
-    def set_menu(self):
-        menu_dic = {'Signal Edit': ["Add", "Load", "Save", "Delete"],
-                    'Time Edit': ["Open Time Box"],
-                    'Time Plots': ["Time Plot Number", "Y Axis"]}
-        for k, vals in menu_dic.items():
-            sub_menu = self.menu.addMenu(k)
-            for v in vals:
-                action = sub_menu.addAction(str(v))
-                action.triggered.connect(self.menu_callback(k, v))
-        self.menu_button.setMenu(self.menu)
+    # def menu_callback(self, k, v):
+    #     return lambda: self.signal_menu_button.setText('{0}_{1}.format(k,v)')
+    #
+    # def set_menu(self):
+    #     menu_dic = {'Signal Edit': ["Add", "Load", "Save", "Delete"],
+    #                 'Time Edit': ["Open Time Box"],
+    #                 'Time Plots': ["Time Plot Number", "Y Axis"]}
+    #     for k, vals in menu_dic.items():
+    #         sub_menu = self.menu.addMenu(k)
+    #         for v in vals:
+    #             action = sub_menu.addAction(str(v))
+    #             action.triggered.connect(self.menu_callback(k, v))
+    #     self.signal_menu_button.setMenu(self.menu)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -131,10 +136,15 @@ class Ui_Form(object):
         self.signal_manipulation_group_box.setTitle(_translate("Form", "Signal"))
         self.current_time_date.setToolTip(_translate("Form", "Current time"))
         self.current_time_date.setDisplayFormat(_translate("Form", "M/d/yyyy h:mm AP"))
-        # self.signal_edit_tool_button.setText(_translate("Form", "Signal Edit"))
-        # self.time_edit_tool_button.setText(_translate("Form", "Time Edit"))
-        # self.time_plots_tool_button.setText(_translate("Form", "Time Plots"))
-        self.menu_button.setText(_translate("Form", "Menu Bar"))
+
+        self.signal_menu_button.setText(_translate("Form", "Signal Edit"))
+        self.time_menu_button.setText(_translate("Form", "Time Edit"))
+        self.plots_menu_button.setText(_translate("Form", "Time PLots"))
+
+    def menu_bar(self):
+        self.ui.signal_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
+        self.ui.time_menu_button.clicked.connect(partial(showDisplay, self.time_edit))
+        # self.plots_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
 
 
 # # class MenuBar(object):
@@ -157,11 +167,11 @@ class Ui_Form(object):
 # #         self.menu_button.setMenu(self.menu)
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())
