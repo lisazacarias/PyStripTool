@@ -5,6 +5,7 @@ from os import path
 from typing import Optional
 from pydm import Display
 from PyQt5 import QtCore, QtGui, QtWidgets
+from lcls_tools.common.pydm_tools.displayUtils import showDisplay
 
 
 class Ui_Form(Display):
