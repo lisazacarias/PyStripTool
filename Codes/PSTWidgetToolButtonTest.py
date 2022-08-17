@@ -12,8 +12,15 @@ class Ui_Form(Display):
         # Point to our UI file
         return '../PyStripTool.ui'
 
+    def getPath(self, fileName):
+        return path.join(self.pathHere, fileName)
+
+
     def __init__(self, parent=None, args=None):
         super().__init__(parent=parent, args=args)
+
+        self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
+
         self.gridLayout = QtWidgets.QGridLayout()
         self.label = QtWidgets.QLabel()
         self.time_plots_layout = QtWidgets.QGroupBox()
@@ -43,8 +50,8 @@ class Ui_Form(Display):
         self.plots_menu_button = QtWidgets.QToolButton()
         self.menu = QtWidgets.QMenu()
 
-        self.signal_edit = Display(ui_filename="../PyStripToolLoadPopUp.ui")
-        self.time_edit = Display(ui_filename="../PyStripToolTimeManip.ui")
+        self.signal_edit = Display(ui_filename=self.getPath("PyStripToolLoadPopUp.ui"))
+        self.time_edit = Display(ui_filename=self.getPath("PyStripToolTimeManip.ui"))
         # self.time_plots = Display(ui_filename="")
 
     def setupUi(self, Form):
