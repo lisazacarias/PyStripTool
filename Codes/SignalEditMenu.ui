@@ -22,10 +22,7 @@
     </widget>
    </item>
    <item>
-    <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton">
-     <property name="toolTip">
-      <string/>
-     </property>
+    <widget class="QPushButton" name="pushButton_3">
      <property name="text">
       <string>Load</string>
      </property>
@@ -47,13 +44,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>PyDMRelatedDisplayButton</class>
-   <extends>QPushButton</extends>
-   <header>pydm.widgets.related_display_button</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -1,7 +1,7 @@
 from pydm import Display
 
 
-class TimeManipulator(Display):
+class LoadPopUp(Display):
     def __init__(self):
         super().__init__()
 
