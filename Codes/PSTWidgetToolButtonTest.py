@@ -25,6 +25,7 @@ class Ui_Form(Display):
 
         self.signal_edit = Display(ui_filename=self.getPath("SignalEditMenu.ui"))
         self.time_edit = Display(ui_filename=self.getPath("PyStripToolTimeManip.ui"))
+        self.plot_edit = Display(ui_filename=self.getPath("TimePlotsEditMenu.ui"))
 
         self.ui.signal_edit_tool_button.clicked.connect(partial(showDisplay, self.signal_edit))
         self.ui.time_edit_tool_button.clicked.connect(partial(showDisplay, self.time_edit))
