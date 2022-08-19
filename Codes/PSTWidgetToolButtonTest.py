@@ -9,18 +9,22 @@ from lcls_tools.common.pydm_tools.displayUtils import showDisplay
 
 
 class Ui_Form(Display):
+    """Build the Display."""
     def ui_filename(self):
         # Point to our UI file
         return 'PyStripTool.ui'
 
     def getPath(self, fileName):
+        # Find files in the path.
         return path.join(self.pathHere, fileName)
 
-
     def __init__(self, parent=None, args=None):
+        # Inherit properties and still run innit.
         super().__init__(parent=parent, args=args)
 
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
+
+        # Build GUI.
 
         self.gridLayout = QtWidgets.QGridLayout()
         self.label = QtWidgets.QLabel()
@@ -46,9 +50,9 @@ class Ui_Form(Display):
         # self.time_plots_number_plots = QtWidgets.QMenu()
         # self.time_plots_y_axis =       QtWidgets.QMenu()
 
-        self.signal_menu_button = QtWidgets.QToolButton()
-        self.time_menu_button = QtWidgets.QToolButton()
-        self.plots_menu_button = QtWidgets.QToolButton()
+        self.signal_edit_tool_button = QtWidgets.QToolButton()
+        self.time_edit_tool_button = QtWidgets.QToolButton()
+        self.time_plots_tool_button = QtWidgets.QToolButton()
         self.menu = QtWidgets.QMenu()
 
         self.signal_edit = Display(ui_filename=self.getPath("PyStripToolLoadPopUp.ui"))
@@ -101,13 +105,13 @@ class Ui_Form(Display):
         self.current_time_date.setObjectName("current_time_date")
         self.gridLayout.addWidget(self.current_time_date, 1, 3, 1, 1)
 
-        self.signal_menu_button.setObjectName("signal_edit")
+        self.signal_edit_tool_button.setObjectName("signal_edit")
         self.gridLayout.addWidget(self.signal_menu_button, 0, 0, 1, 1)
 
-        self.time_menu_button.setObjectName("time_edit")
+        self.time_edit_tool_button.setObjectName("time_edit")
         self.gridLayout.addWidget(self.time_menu_button, 0, 1, 1, 1)
 
-        self.plots_menu_button.setObjectName("time_plots")
+        self.time_plots_tool_button.setObjectName("time_plots")
         self.gridLayout.addWidget(self.plots_menu_button, 0, 2, 1, 1)
 
         self.retranslateUi(Form)
@@ -145,13 +149,13 @@ class Ui_Form(Display):
         self.current_time_date.setToolTip(_translate("Form", "Current time"))
         self.current_time_date.setDisplayFormat(_translate("Form", "M/d/yyyy h:mm AP"))
 
-        self.signal_menu_button.setText(_translate("Form", "Signal Edit"))
-        self.time_menu_button.setText(_translate("Form", "Time Edit"))
-        self.plots_menu_button.setText(_translate("Form", "Time PLots"))
+        self.signal_edit_tool_button.setText(_translate("Form", "Signal Edit"))
+        self.time_edit_tool_button.setText(_translate("Form", "Time Edit"))
+        self.time_plots_tool_button.setText(_translate("Form", "Time PLots"))
 
     def menu_bar(self):
-        self.ui.signal_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
-        self.ui.time_menu_button.clicked.connect(partial(showDisplay, self.time_edit))
+        self.ui.signal_edit_tool_button.clicked.connect(partial(showDisplay, self.signal_edit))
+        self.ui.time_edit_tool_button.clicked.connect(partial(showDisplay, self.time_edit))
         # self.plots_menu_button.clicked.connect(partial(showDisplay, self.signal_edit))
 
 
