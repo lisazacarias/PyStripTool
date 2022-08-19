@@ -23,7 +23,7 @@ class Ui_Form(Display):
 
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
 
-        self.signal_edit = Display(ui_filename=self.getPath("PyStripToolLoadPopUp.ui"))
+        self.signal_edit = Display(ui_filename=self.getPath("PyStripToolSignalEditMenu.ui"))
         self.time_edit = Display(ui_filename=self.getPath("PyStripToolTimeManip.ui"))
 
         self.ui.signal_edit_tool_button.clicked.connect(partial(showDisplay, self.signal_edit))
