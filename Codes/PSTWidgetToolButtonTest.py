@@ -1,4 +1,5 @@
 import sys
+from PyQt5.QtCore import pyqtSlot
 from functools import partial
 from os import path
 
