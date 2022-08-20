@@ -64,19 +64,22 @@ class PyStripTool(Display):
             self.ui.pause_play_button.clicked.connect(self.ui.pause_play_indicator)
 
     def signal_setups(self):
+        """Build signal setups."""
         signal_setups = QHBoxLayout()
+
         signal_check_box = QCheckBox()
         signal_setups.addWidget(signal_check_box)
+
         signal_line_edit = QLineEdit()
         signal_setups.addWidget(signal_line_edit)
+
         signal_y_axis_assignment_combo_box = QComboBox()
         signal_setups.addWidget(signal_y_axis_assignment_combo_box)
-        time_plot_assignment = QComboBox()
-        time_plot_assignment.addItems([str(i) for i in range(1, 13)])
-        signal_setups.addWidget(time_plot_assignment)
+
         color_slider = QSlider()
         color_slider.setOrientation(QtCore.Qt.Horizontal)
         signal_setups.addWidget(color_slider)
+
         opacity_check_box = QCheckBox()
         signal_setups.addWidget(opacity_check_box)
 
