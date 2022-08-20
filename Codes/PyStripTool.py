@@ -6,6 +6,7 @@ from typing import Optional
 
 # from lcls_tools.common.pydm_tools.displayUtils import showDisplay
 # from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotUpdater)
+from PyQt5.QtCore import pyqtSlot
 from pydm import Display
 from qtpy import QtCore
 from qtpy.QtWidgets import (QCheckBox, QComboBox, QHBoxLayout,
@@ -15,42 +16,42 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 class PyStripTool(Display):
-
+    
     def ui_filename(self):
         # Point to our UI file
         return 'PyStripTool.ui'
-
+    
     def __init__(self, parent=None, args=None):
         super().__init__(parent=parent, args=args)
-
+        
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
-
+        
         self.setup_plots()
-
+        
         self.ui.timespan_spinbox.editingFinished.connect(self.update_plot_timespan)
         self.current_line: Optional[str] = None
-
+        
         self.time_combo_boxes = [self.ui.years_selector,
                                  self.ui.months_selector,
                                  self.ui.days_selector,
                                  self.ui.hours_selector,
                                  self.ui.minutes_selector]
         self.signal_setups_check_boxes = [self.ui.signal_checkbox, self.ui.opacity_checkbox]
-
+        
         self.load_popup = Display(ui_filename="PyStripToolLoadPopUp.ui")
         self.time_popup = Display(ui_filename="PyStripToolTimeManip.ui")
-
+    
     def update_plot_timespan(self):
         # Update the time span.
         self.time_plot_updater.updateTimespans(self.ui.timespan_spinbox.value())
-
+    
     def ui_filepath(self):
         # Return the full path to the UI file
         return path.join(path.dirname(path.realpath(__file__)), self.ui_filename())
-
+    
     def get_path(self, file_name):
         return path.join(self.pathHere, file_name)
-
+    
     def time_manipulation(self):
         self.ui.action_open_time_manipulation_box.clicked.connect(partial(showDisplay, self.time_popup))
         # Connect year/month/day/hour/minute combo boxes to the time span of the plots.
@@ -62,29 +63,29 @@ class PyStripTool(Display):
             # Connect the live view button and indicator to the plots.
             self.ui.pause_play_button.clicked.connect(self.time_plot_updater)
             self.ui.pause_play_button.clicked.connect(self.ui.pause_play_indicator)
-
+    
     def signal_setups(self):
         """Build signal setups."""
         signal_setups = QHBoxLayout()
-
+        
         signal_check_box = QCheckBox()
         signal_setups.addWidget(signal_check_box)
-
+        
         signal_line_edit = QLineEdit()
         signal_setups.addWidget(signal_line_edit)
-
+        
         signal_y_axis_assignment_combo_box = QComboBox()
         signal_setups.addWidget(signal_y_axis_assignment_combo_box)
-
+        
         color_slider = QSlider()
         color_slider.setOrientation(QtCore.Qt.Horizontal)
         signal_setups.addWidget(color_slider)
-
+        
         opacity_check_box = QCheckBox()
         signal_setups.addWidget(opacity_check_box)
-
+        
         self.ui.SignalLayout_2.addLayout(signal_setups)
-
+        
         # Line edit
         self.ui.signal_line_edit.returnPressed.connect(self.data)
         # Signal checkbox
@@ -96,7 +97,8 @@ class PyStripTool(Display):
         # Opacity checkbox
         self.ui.opacity_checkbox.checked.connect(self.ui.signal_line_edit)
         self.ui.opacity_checkbox.checked.connect(self.time_plot_updater)
-
+    
+    @pyqtSlot
     def signal_manipulation(self):
         # Connect the add/load/save/delete buttons to the signal setup area.
         self.ui.action_add.clicked.connect(self.signal_setups)
