@@ -24,10 +24,11 @@ class Ui_Form(Display):
 
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
 
-        """Call the Uis for the top menu buttons."""
+        """Call related Uis."""
 
         self.signal_edit = Display(ui_filename=self.getPath("SignalEditMenu.ui"))
         self.time_edit = Display(ui_filename=self.getPath("PyStripToolTimeManip.ui"))
+        self.time_plot_edit = Display(ui_filename=self.getPath("TimePlotsEditMenu.ui"))
 
         self.ui.signal_edit_tool_button.clicked.connect(partial(showDisplay,
                                                                 self.signal_edit))
@@ -42,7 +43,7 @@ class Ui_Form(Display):
         self.ui.timeplots_number_spinbox.valueChanged.connect(self.num_timeplots_changed)
 
     def make_timeplot(self):
-        """Set """
+        """Make time plots and their edit buttons."""
         h_layout = QHBoxLayout()
         h_layout.addWidget(PyDMTimePLot())
         h_layout.addWidget(QPushButton('Edit'))

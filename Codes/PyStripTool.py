@@ -4,8 +4,8 @@ from functools import partial
 from os import path
 from typing import Optional
 
-# from lcls_tools.common.pydm_tools.displayUtils import showDisplay
-# from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotUpdater)
+from lcls_tools.common.pydm_tools.displayUtils import showDisplay
+from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotUpdater)
 from pydm import Display
 from qtpy import QtCore
 from qtpy.QtWidgets import (QCheckBox, QComboBox, QHBoxLayout,
