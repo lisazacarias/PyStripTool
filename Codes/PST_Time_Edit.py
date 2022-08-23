@@ -5,6 +5,7 @@ from pydm.widgets import PyDMDrawingRectangle
 class TimeManipulator(Display):
     def __init__(self):
         super().__init__()
+        self.time_plot_updater: TimePlotUpdater = None
         self.ui.pause_play_button.clicked.connect(self.update_indicator)
         self.ui.days_selector.indexChanged()
         self.indicator: PyDMDrawingRectangle = self.ui.pause_play_indicator

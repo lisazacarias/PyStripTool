@@ -3,6 +3,7 @@ from PyQt5.QtCore import pyqtSlot
 from functools import partial
 from os import path
 
+from PyQt5.QtWidgets import QHBoxLayout, QPushButton
 from lcls_tools.common.pydm_tools.displayUtils import showDisplay
 from pydm import Display
 
@@ -45,8 +46,11 @@ class Ui_Form(Display):
     def make_timeplot(self):
         """Make time plots and their edit buttons."""
         h_layout = QHBoxLayout()
-        h_layout.addWidget(PyDMTimePLot())
-        h_layout.addWidget(QPushButton('Edit'))
+        p_lot = PyDMTimePLot()
+        h_layout.addWidget(p_lot)
+        edit_button = QPushButton('Edit')
+        edit_button.clicked.connect(partial(self.time_plot_edit.update_plot, p_lot))
+        h_layout.addWidget(edit_button)
         self.timeplots.append(h_layout)
 
     @staticmethod
