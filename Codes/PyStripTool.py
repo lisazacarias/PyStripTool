@@ -35,7 +35,7 @@ class Ui_Form(Display):
 
         self.ui.signal_edit_tool_button.clicked.connect(partial(showDisplay,
                                                                 self.signal_edit))
-        self.ui.time_edit_tool_button.clicked.connect(partial(showDisplay,
+        self.ui.time_edit_button.clicked.connect(partial(showDisplay,
                                                               self.time_edit))
 
         """Create timeplot list."""

@@ -58,7 +58,7 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton">
+    <widget class="PyDMRelatedDisplayButton" name="time_edit_button">
      <property name="toolTip">
       <string/>
      </property>
