@@ -4,7 +4,7 @@ import numpy as np
 from PyQt5.QtCore import pyqtSlot
 from functools import partial
 from os import path
-from pydm.widgets import PyDMTimePlot
+from pydm.widgets import PyDMTimePlot, PyDMRelatedDisplayButton
 from PyQt5.QtWidgets import QCheckBox, QHBoxLayout, QLineEdit, QComboBox, QPushButton, QSpinBox, QSlider
 from lcls_tools.common.pydm_tools.displayUtils import showDisplay
 from pydm import Display
@@ -85,7 +85,7 @@ class Ui_Form(Display):
         self.signals.append(signal_setups)
 
     def update_plot(self, time_plot):
-        time_plot.setVisible(self.ui.signal_checkbox.isChecked())
+        time_plot.setVisible(self.ui.signal_check_box.isChecked())
         time_plot.setCurves(self.ui.signal_line_edit.editingFinished())
         time_plot.setY(self.ui.signal_y_axis_assignment_combo_box.editingFinished())
         time_plot.setAutoRangeY(self.ui.autoscale_checkbox.isChecked())
@@ -99,7 +99,9 @@ class Ui_Form(Display):
         h_layout = QHBoxLayout()
         p_lot = PyDMTimePlot()
         h_layout.addWidget(p_lot)
-        edit_button = QPushButton('Edit')
+        edit_button = PyDMRelatedDisplayButton('Edit')
+        edit_button.clicked.connect(partial(showDisplay,
+                                                         self.time_plot_edit))
         edit_button.clicked.connect(partial(self.update_plot, p_lot))
         h_layout.addWidget(edit_button)
         self.timeplots.append(h_layout)
@@ -107,7 +109,7 @@ class Ui_Form(Display):
     @staticmethod
     def get_dimensions(num_options):
         row_count = int(np.sqrt(num_options))
-        col_count = int(np.floor(row_count))
+        col_count = int(np.floor(np.sqrt(num_options)))
         if row_count * col_count != num_options:
             col_count += 1
         return col_count
