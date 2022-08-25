@@ -45,51 +45,53 @@ class Ui_Form(Display):
         """Create signals list."""
         self.signals = []
         self.make_signal()
-        self.ui.signals_scroll_layout.addLayout(self.signals[0], 0, 0)
-        self.ui.add_signal_button.clicked.connect()
+        self.time_plot_edit.ui.signals_scroll_layout.addLayout(self.signals[0], 1, 0)
+        for idx, item in enumerate(self.signals[0]):
+            self.time_plot_edit.ui.signals_scroll_layout.addWidget(item, 1, idx)
+        self.time_plot_edit.ui.add_signal_button.clicked.connect(self.make_signal)
 
     def make_signal(self):
         """Make the signal setups."""
-        signal_setups = QHBoxLayout()
+        signal_setups = []
 
         # "Visible" Checkbox
         self.signal_check_box = QCheckBox()
-        signal_setups.addWidget(self.signal_check_box)
+        signal_setups.append(self.signal_check_box)
 
         # "Signal" Line Edit
         self.signal_line_edit = QLineEdit()
-        signal_setups.addWidget(self.signal_line_edit)
+        signal_setups.append(self.signal_line_edit)
 
         # "Y-Axis Unit" Spinbox
         self.signal_y_axis_assignment_combo_box = QComboBox()
-        signal_setups.addWidget(self.signal_y_axis_assignment_combo_box)
+        signal_setups.append(self.signal_y_axis_assignment_combo_box)
 
         # AutoScale Checkbox
         self.autoscale_checkbox = QCheckBox('AutoScale')
-        signal_setups.addWidget(self.autoscale_checkbox)
+        signal_setups.append(self.autoscale_checkbox)
 
         # "Y-Min" Spinbox
         self.y_min_spinbox = QSpinBox()
-        signal_setups.addWidget(self.y_min_spinbox)
+        signal_setups.append(self.y_min_spinbox)
 
         # "Y-Max" Spinbox
         self.y_max_spinbox = QSpinBox()
-        signal_setups.addWidget(self.y_max_spinbox)
+        signal_setups.append(self.y_max_spinbox)
 
         # "Color" Slider
         self.color_slider = QSlider()
         self.color_slider.setOrientation(QtCore.Qt.Horizontal)
-        signal_setups.addWidget(self.color_slider)
+        signal_setups.append(self.color_slider)
 
         # "Opacity" Checkbox
         self.opacity_check_box = QCheckBox()
-        signal_setups.addWidget(self.opacity_check_box)
+        signal_setups.append(self.opacity_check_box)
 
         self.signals.append(signal_setups)
 
-    def update_plot(self, time_plot):
+    def update_plot(self, time_plot: PyDMTimePlot):
         time_plot.setVisible(self.signal_check_box.isChecked())
-        time_plot.setCurves(self.signal_line_edit.editingFinished())
+        self.signal_line_edit.editingFinished.connect(partial(time_plot.addYChannel, self.signal_line_edit.text()))
         time_plot.setY(self.signal_y_axis_assignment_combo_box.editingFinished())
         time_plot.setAutoRangeY(self.autoscale_checkbox.isChecked())
         time_plot.setMinYRange(self.y_min_spinbox.valueChanged())
@@ -102,7 +104,8 @@ class Ui_Form(Display):
         h_layout = QHBoxLayout()
         p_lot = PyDMTimePlot()
         h_layout.addWidget(p_lot)
-        edit_button: PyDMRelatedDisplayButton = PyDMRelatedDisplayButton('Edit', filename="TimePlotsEditMenu.ui")
+        edit_button: QPushButton = QPushButton('Edit')
+        edit_button.clicked.connect(partial(showDisplay, self.time_plot_edit))
         edit_button.clicked.connect(partial(self.update_plot, p_lot))
         h_layout.addWidget(edit_button)
         self.timeplots.append(h_layout)
