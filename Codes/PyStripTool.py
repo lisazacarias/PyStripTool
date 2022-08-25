@@ -100,7 +100,7 @@ class Ui_Form(Display):
         p_lot = PyDMTimePlot()
         h_layout.addWidget(p_lot)
         edit_button = QPushButton('Edit')
-        edit_button.clicked.connect(partial(self.time_plot_edit.update_plot, p_lot))
+        edit_button.clicked.connect(partial(self.update_plot, p_lot))
         h_layout.addWidget(edit_button)
         self.timeplots.append(h_layout)
 
@@ -117,6 +117,13 @@ class Ui_Form(Display):
         self.clear_plot_layout()
         col_count = self.get_dimensions(value)
         if value <= len(self.timeplots):
+            for idx, timeplot in enumerate(range(value)):
+                self.ui.timeplot_glayout.addLayout(self.timeplots[idx],
+                                                   int(idx / col_count),
+                                                   idx % col_count)
+        elif value > len(self.timeplots):
+            for i in range(value-len(self.timeplots)):
+                self.make_timeplot()
             for idx, timeplot in enumerate(range(value)):
                 self.ui.timeplot_glayout.addLayout(self.timeplots[idx],
                                                    int(idx / col_count),
