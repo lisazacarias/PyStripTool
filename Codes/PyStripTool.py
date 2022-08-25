@@ -42,6 +42,12 @@ class Ui_Form(Display):
 
         self.ui.timeplots_number_spinbox.valueChanged.connect(self.num_timeplots_changed)
 
+        """Create signals list."""
+        self.signals = []
+        self.make_signal()
+        self.ui.signals_scroll_layout.addLayout(self.signals[0], 0, 0)
+        self.ui.add_signal_button.clicked.connect()
+
     def make_signal(self):
         """Make the signal setups."""
         signal_setups = QHBoxLayout()
