@@ -99,7 +99,7 @@ class Ui_Form(Display):
         h_layout = QHBoxLayout()
         p_lot = PyDMTimePlot()
         h_layout.addWidget(p_lot)
-        edit_button = PyDMRelatedDisplayButton('Edit')
+        edit_button: PyDMRelatedDisplayButton = PyDMRelatedDisplayButton('Edit', filename="TimePlotsEditMenu.ui")
         edit_button.clicked.connect(partial(showDisplay,
                                                          self.time_plot_edit))
         edit_button.clicked.connect(partial(self.update_plot, p_lot))
