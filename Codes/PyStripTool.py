@@ -4,8 +4,8 @@ import numpy as np
 from PyQt5.QtCore import pyqtSlot
 from functools import partial
 from os import path
-
-from PyQt5.QtWidgets import QCheckBox, QHBoxLayout, QLineEdit, QComboBox, QPushButton, QSpinBox, QSlider, PyDMTimePlot
+from pydm.widgets import PyDMTimePlot
+from PyQt5.QtWidgets import QCheckBox, QHBoxLayout, QLineEdit, QComboBox, QPushButton, QSpinBox, QSlider
 from lcls_tools.common.pydm_tools.displayUtils import showDisplay
 from pydm import Display
 
@@ -29,7 +29,7 @@ class Ui_Form(Display):
 
         """Call related Uis."""
 
-        self.signal_edit = Display(ui_filename=self.getPath("SignalEditMenu.ui"))
+        self.signal_edit = Display(ui_filename=self.getPath("PyStripToolLoadPopUp.ui"))
         self.time_edit = Display(ui_filename=self.getPath("PyStripToolTimeManip.ui"))
         self.time_plot_edit = Display(ui_filename=self.getPath("TimePlotsEditMenu.ui"))
 
@@ -103,7 +103,7 @@ class Ui_Form(Display):
         edit_button.clicked.connect(partial(self.time_plot_edit.update_plot, p_lot))
         h_layout.addWidget(edit_button)
         self.timeplots.append(h_layout)
-cd Py   
+
     @staticmethod
     def get_dimensions(num_options):
         row_count = int(np.sqrt(num_options))
