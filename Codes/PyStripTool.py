@@ -107,7 +107,7 @@ class Ui_Form(Display):
     @staticmethod
     def get_dimensions(num_options):
         row_count = int(np.sqrt(num_options))
-        col_count = int(np.ceil(np.sqrt(num_options)))
+        col_count = int(np.floor(np.sqrt(num_options)))
         if row_count * col_count != num_options:
             col_count += 1
         return col_count
