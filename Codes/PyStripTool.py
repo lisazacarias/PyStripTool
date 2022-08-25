@@ -25,6 +25,14 @@ class Ui_Form(Display):
         """Inherit properties and still run init."""
         super().__init__(parent=parent, args=args)
 
+        self.signal_check_box = None
+        self.signal_line_edit = None
+        self.signal_y_axis_assignment_combo_box = None
+        self.autoscale_checkbox = None
+        self.y_min_spinbox = None
+        self.y_max_spinbox = None
+        self.color_slider = None
+        self.opacity_check_box = None
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
 
         """Call related Uis."""
@@ -47,37 +55,37 @@ class Ui_Form(Display):
         signal_setups = QHBoxLayout()
 
         # "Visible" Checkbox
-        signal_check_box = QCheckBox()
-        signal_setups.addWidget(signal_check_box)
+        self.signal_check_box = QCheckBox()
+        signal_setups.addWidget(self.signal_check_box)
 
         # "Signal" Line Edit
-        signal_line_edit = QLineEdit()
-        signal_setups.addWidget(signal_line_edit)
+        self.signal_line_edit = QLineEdit()
+        signal_setups.addWidget(self.signal_line_edit)
 
         # "Y-Axis Unit" Spinbox
-        signal_y_axis_assignment_combo_box = QComboBox()
-        signal_setups.addWidget(signal_y_axis_assignment_combo_box)
+        self.signal_y_axis_assignment_combo_box = QComboBox()
+        signal_setups.addWidget(self.signal_y_axis_assignment_combo_box)
 
         # AutoScale Checkbox
-        autoscale_checkbox = QCheckBox('AutoScale')
-        signal_setups.addWidget(autoscale_checkbox)
+        self.autoscale_checkbox = QCheckBox('AutoScale')
+        signal_setups.addWidget(self.autoscale_checkbox)
 
         # "Y-Min" Spinbox
-        y_min_spinbox = QSpinBox()
-        signal_setups.addWidget(y_min_spinbox)
+        self.y_min_spinbox = QSpinBox()
+        signal_setups.addWidget(self.y_min_spinbox)
 
         # "Y-Max" Spinbox
-        y_max_spinbox = QSpinBox()
-        signal_setups.addWidget(y_max_spinbox)
+        self.y_max_spinbox = QSpinBox()
+        signal_setups.addWidget(self.y_max_spinbox)
 
         # "Color" Slider
-        color_slider = QSlider()
-        color_slider.setOrientation(QtCore.Qt.Horizontal)
-        signal_setups.addWidget(color_slider)
+        self.color_slider = QSlider()
+        self.color_slider.setOrientation(QtCore.Qt.Horizontal)
+        signal_setups.addWidget(self.color_slider)
 
         # "Opacity" Checkbox
-        opacity_check_box = QCheckBox()
-        signal_setups.addWidget(opacity_check_box)
+        self.opacity_check_box = QCheckBox()
+        signal_setups.addWidget(self.opacity_check_box)
 
         self.signals.append(signal_setups)
 
