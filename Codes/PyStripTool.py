@@ -35,9 +35,6 @@ class Ui_Form(Display):
 
         self.ui.signal_edit_tool_button.clicked.connect(partial(showDisplay,
                                                                 self.signal_edit))
-        # self.ui.time_edit_button.clicked.connect(partial(showDisplay,
-        #                                                       self.time_edit))
-
         """Create timeplot list."""
         self.timeplots = []
         self.make_timeplot()
@@ -85,14 +82,14 @@ class Ui_Form(Display):
         self.signals.append(signal_setups)
 
     def update_plot(self, time_plot):
-        time_plot.setVisible(self.ui.signal_check_box.isChecked())
-        time_plot.setCurves(self.ui.signal_line_edit.editingFinished())
-        time_plot.setY(self.ui.signal_y_axis_assignment_combo_box.editingFinished())
-        time_plot.setAutoRangeY(self.ui.autoscale_checkbox.isChecked())
-        time_plot.setMinYRange(self.ui.y_min_spinbox.valueChanged())
-        time_plot.setMaxYRange(self.ui.y_max_spinbox.valueChanged())
-        time_plot.setColor(self.ui.color_slider.SliderMove())
-        time_plot.setOpacity(self.ui.opacity_check_box.isChecked())
+        time_plot.setVisible(self.signal_check_box.isChecked())
+        time_plot.setCurves(self.signal_line_edit.editingFinished())
+        time_plot.setY(self.signal_y_axis_assignment_combo_box.editingFinished())
+        time_plot.setAutoRangeY(self.autoscale_checkbox.isChecked())
+        time_plot.setMinYRange(self.y_min_spinbox.valueChanged())
+        time_plot.setMaxYRange(self.y_max_spinbox.valueChanged())
+        time_plot.setColor(self.color_slider.SliderMove())
+        time_plot.setOpacity(self.opacity_check_box.isChecked())
 
     def make_timeplot(self):
         """Make time plots and their edit buttons."""
@@ -100,7 +97,6 @@ class Ui_Form(Display):
         p_lot = PyDMTimePlot()
         h_layout.addWidget(p_lot)
         edit_button: PyDMRelatedDisplayButton = PyDMRelatedDisplayButton('Edit', filename="TimePlotsEditMenu.ui")
-        # edit_button.clicked.connect(partial(showDisplay, self.time_plot_edit))
         edit_button.clicked.connect(partial(self.update_plot, p_lot))
         h_layout.addWidget(edit_button)
         self.timeplots.append(h_layout)
