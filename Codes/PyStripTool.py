@@ -25,14 +25,6 @@ class Ui_Form(Display):
         """Inherit properties and still run init."""
         super().__init__(parent=parent, args=args)
 
-        self.signal_check_box = None
-        self.signal_line_edit = None
-        self.signal_y_axis_assignment_combo_box = None
-        self.autoscale_checkbox = None
-        self.y_min_spinbox = None
-        self.y_max_spinbox = None
-        self.color_slider = None
-        self.opacity_check_box = None
         self.pathHere = path.dirname(sys.modules[self.__module__].__file__)
 
         """Call related Uis."""
