@@ -19,7 +19,7 @@ class TimePotEdit(Display):
         self.signals = []
         self.make_signal()
         self.ui.signals_scroll_layout.addLayout(self.signals[0], 0, 0)
-        self.ui.add_signal_button.clicked.connect()
+        self.ui.add_signal_button.clicked.connect(self.make_signal)
 
     def make_signal(self):
         """Make the signal setups."""

@@ -74,90 +74,81 @@
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="1" column="0">
            <layout class="QGridLayout" name="signals_scroll_layout">
-            <item row="0" column="0">
-             <widget class="QGroupBox" name="Labels_group_box">
-              <property name="title">
+            <item row="0" column="3">
+             <widget class="QLabel" name="AutoScale_spacer_label">
+              <property name="text">
                <string/>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <item>
-                <widget class="QLabel" name="visible_label">
-                 <property name="text">
-                  <string>Visible</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="signal_label">
-                 <property name="text">
-                  <string>Signal</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="y_axis_unit_label">
-                 <property name="text">
-                  <string>Y-Axis Unit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="AutoScale_spacer_label">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="y_min_label">
-                 <property name="text">
-                  <string>Y-Min</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="y_max_label">
-                 <property name="text">
-                  <string>Y-Max</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="color_label">
-                 <property name="text">
-                  <string>Color</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="opacity_label">
-                 <property name="text">
-                  <string>Opacity</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-              </layout>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QLabel" name="y_min_label">
+              <property name="text">
+               <string>Y-Min</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="y_axis_unit_label">
+              <property name="text">
+               <string>Y-Axis Unit</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="5">
+             <widget class="QLabel" name="y_max_label">
+              <property name="text">
+               <string>Y-Max</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="visible_label">
+              <property name="text">
+               <string>Visible</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="signal_label">
+              <property name="text">
+               <string>Signal</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="7">
+             <widget class="QLabel" name="opacity_label">
+              <property name="text">
+               <string>Opacity</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="6">
+             <widget class="QLabel" name="color_label">
+              <property name="text">
+               <string>Color</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
              </widget>
             </item>
            </layout>
