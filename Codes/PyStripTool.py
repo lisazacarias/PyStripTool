@@ -35,8 +35,8 @@ class Ui_Form(Display):
 
         self.ui.signal_edit_tool_button.clicked.connect(partial(showDisplay,
                                                                 self.signal_edit))
-        self.ui.time_edit_button.clicked.connect(partial(showDisplay,
-                                                              self.time_edit))
+        # self.ui.time_edit_button.clicked.connect(partial(showDisplay,
+        #                                                       self.time_edit))
 
         """Create timeplot list."""
         self.timeplots = []
@@ -100,8 +100,7 @@ class Ui_Form(Display):
         p_lot = PyDMTimePlot()
         h_layout.addWidget(p_lot)
         edit_button: PyDMRelatedDisplayButton = PyDMRelatedDisplayButton('Edit', filename="TimePlotsEditMenu.ui")
-        edit_button.clicked.connect(partial(showDisplay,
-                                                         self.time_plot_edit))
+        # edit_button.clicked.connect(partial(showDisplay, self.time_plot_edit))
         edit_button.clicked.connect(partial(self.update_plot, p_lot))
         h_layout.addWidget(edit_button)
         self.timeplots.append(h_layout)
