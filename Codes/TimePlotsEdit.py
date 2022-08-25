@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QCheckBox, QHBoxLayout, QLineEdit, QComboBox, QSpinBox, QSlider
+from PyQt5.QtWidgets import QCheckBox, QHBoxLayout, QLineEdit, QComboBox, QSpinBox, QSlider, PyDMTimePlot
 from qtpy import QtCore
 from PyQt5.QtCore import pyqtSlot
 from pydm import Display
