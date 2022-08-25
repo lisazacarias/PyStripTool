@@ -45,7 +45,6 @@ class Ui_Form(Display):
         """Create signals list."""
         self.signals = []
         self.make_signal()
-        self.time_plot_edit.ui.signals_scroll_layout.addLayout(self.signals[0], 1, 0)
         for idx, item in enumerate(self.signals[0]):
             self.time_plot_edit.ui.signals_scroll_layout.addWidget(item, 1, idx)
         self.time_plot_edit.ui.add_signal_button.clicked.connect(self.make_signal)
