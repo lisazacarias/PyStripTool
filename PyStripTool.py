@@ -4,8 +4,9 @@ import numpy as np
 from PyQt5.QtCore import pyqtSlot
 from functools import partial
 from os import path
-from pydm.widgets import PyDMTimePlot, PyDMRelatedDisplayButton
-from PyQt5.QtWidgets import QCheckBox, QHBoxLayout, QLineEdit, QComboBox, QPushButton, QSpinBox, QSlider
+from pydm.widgets import PyDMArchiverTimePlot
+from PyQt5.QtWidgets import (QCheckBox, QGroupBox, QLineEdit, QComboBox,
+                             QPushButton, QSpinBox, QSlider, QVBoxLayout)
 from lcls_tools.common.pydm_tools.displayUtils import showDisplay
 from pydm import Display
 
@@ -38,7 +39,7 @@ class Ui_Form(Display):
         """Create timeplot list."""
         self.timeplots = []
         self.make_timeplot()
-        self.ui.timeplot_glayout.addLayout(self.timeplots[0], 0, 0)
+        self.ui.timeplot_glayout.addWidget(self.timeplots[0], 0, 0)
 
         self.ui.timeplots_number_spinbox.valueChanged.connect(self.num_timeplots_changed)
 
@@ -88,7 +89,7 @@ class Ui_Form(Display):
 
         self.signals.append(signal_setups)
 
-    def update_plot(self, time_plot: PyDMTimePlot):
+    def update_plot(self, time_plot: PyDMArchiverTimePlot):
         time_plot.setVisible(self.signal_check_box.isChecked())
         self.signal_line_edit.editingFinished.connect(partial(time_plot.addYChannel, self.signal_line_edit.text()))
         time_plot.setY(self.signal_y_axis_assignment_combo_box.editingFinished())
@@ -100,14 +101,16 @@ class Ui_Form(Display):
 
     def make_timeplot(self):
         """Make time plots and their edit buttons."""
-        h_layout = QHBoxLayout()
-        p_lot = PyDMTimePlot()
-        h_layout.addWidget(p_lot)
+        groupbox = QGroupBox()
+        v_layout = QVBoxLayout()
+        groupbox.setLayout(v_layout)
+        p_lot = PyDMArchiverTimePlot()
+        v_layout.addWidget(p_lot)
         edit_button: QPushButton = QPushButton('Edit')
         edit_button.clicked.connect(partial(showDisplay, self.time_plot_edit))
         edit_button.clicked.connect(partial(self.update_plot, p_lot))
-        h_layout.addWidget(edit_button)
-        self.timeplots.append(h_layout)
+        v_layout.addWidget(edit_button)
+        self.timeplots.append(groupbox)
 
     @staticmethod
     def get_dimensions(num_options):
@@ -123,14 +126,14 @@ class Ui_Form(Display):
         col_count = self.get_dimensions(value)
         if value <= len(self.timeplots):
             for idx, timeplot in enumerate(range(value)):
-                self.ui.timeplot_glayout.addLayout(self.timeplots[idx],
+                self.ui.timeplot_glayout.addWidget(self.timeplots[idx],
                                                    int(idx / col_count),
                                                    idx % col_count)
         elif value > len(self.timeplots):
             for i in range(value-len(self.timeplots)):
                 self.make_timeplot()
             for idx, timeplot in enumerate(range(value)):
-                self.ui.timeplot_glayout.addLayout(self.timeplots[idx],
+                self.ui.timeplot_glayout.addWidget(self.timeplots[idx],
                                                    int(idx / col_count),
                                                    idx % col_count)
 
